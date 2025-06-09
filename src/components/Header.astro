@@ -1,38 +1,104 @@
-<nav>
-<div class="nav-logo">
-        <a href="/">
-            <img src="logo.png" alt="Logo">
-        </a>
-</div>
+    <nav>
+        <div class="nav-logo">
+            <a href="/">
+                <img src="/public/logo.png" alt="Logo">
+            </a>
+        </div>
 
-<ul class="nav-links">
-        <li class="link"><a href="/">Home</a></li>
-        <li class="link"><a href="/proyectos">Proyectos</a></li>
-        <li class="link"><a href="/services">Servicios</a></li>
-</ul>
-    <button class="btn">¡Contactar Ahora!</button>
-</nav>
+        <ul class="nav-links">
+            <li class="link"><a href="/">Home</a></li>
+            <li class="link"><a href="/proyectos">Proyectos</a></li>
+            <li class="link"><a href="/services">Servicios</a></li>
+        </ul>
+
+        <button class="btn">¡Contactar Ahora!</button>
+
+        <!-- Botón del menú hamburguesa -->
+        <button class="nav-toggle" id="nav-toggle">
+            <i class="ri-menu-line"></i>
+        </button>
+    </nav>
+
+    <!-- Menú móvil -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <button class="mobile-menu-close" id="mobile-menu-close">
+                <i class="ri-close-line"></i>
+            </button>
+            <ul class="mobile-nav-links">
+                <li><a href="/" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="/proyectos" onclick="closeMobileMenu()">Proyectos</a></li>
+                <li><a href="/services" onclick="closeMobileMenu()">Servicios</a></li>
+            </ul>
+            <button class="btn mobile-btn" onclick="closeMobileMenu()">¡Contactar Ahora!</button>
+        </div>
+    </div>
+
+    <script>
+        const navToggle = document.getElementById('nav-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        navToggle.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+
+        // Cerrar menú al hacer click fuera
+        mobileMenu.addEventListener('click', function(e) {
+            if (e.target === mobileMenu) {
+                closeMobileMenu();
+            }
+        });
+
+        // Cerrar menú con tecla ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Manejar redimensionamiento de ventana
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+    </script>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap');
 
-
-img{
-    width: 100%;
-    display: flex;
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-a{
+img {
+    width: 100%;
+    display: flex;
+}
+
+a {
     text-decoration: none;
 }
 
-body{
+body {
     font-family: 'Poppins', sans-serif;
     background-color: #18181b;
+    color: #f4f4f4;
 }
 
-nav{
+nav {
     max-width: 1200px;
     margin: auto;
     padding: 2rem 1rem;
@@ -40,26 +106,30 @@ nav{
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
+    position: relative;
 }
 
-.nav-logo{
+.nav-logo {
     max-width: 100px;
+    z-index: 1000;
 }
 
-.nav-links{
+.nav-links {
     list-style: none;
     display: flex;
     align-items: center;
     gap: 3rem;
 }
 
-.link a{
+.link a {
     position: relative;
     padding-bottom: 0.75rem;
     color: #f4f4f4;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-.link a::after{
+.link a::after {
     content: "";
     position: absolute;
     height: 2px;
@@ -70,11 +140,15 @@ nav{
     transition: all 0.3s ease;
 }
 
-.link a:hover::after{
+.link a:hover::after {
     width: 70%;
 }
 
-.btn{
+.link a:hover {
+    color: #1d4ed8;
+}
+
+.btn {
     padding: 1rem 2rem;
     font-size: 1rem;
     color: #f4f4f4;
@@ -82,9 +156,200 @@ nav{
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
+    border: none;
+    font-family: inherit;
+    font-weight: 500;
 }
 
-.btn:hover{
+.btn:hover {
     background-color: #1e40af;
+    transform: translateY(-2px);
+}
+
+/* Botón hamburguesa */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #f4f4f4;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.nav-toggle:hover {
+    color: #1d4ed8;
+    background-color: rgba(29, 78, 216, 0.1);
+}
+
+/* Menú móvil */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #27272a;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu.active .mobile-menu-content {
+    transform: translateX(0);
+}
+
+.mobile-menu-close {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    color: #f4f4f4;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.mobile-menu-close:hover {
+    color: #1d4ed8;
+    background-color: rgba(29, 78, 216, 0.1);
+}
+
+.mobile-nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex: 1;
+}
+
+.mobile-nav-links a {
+    color: #f4f4f4;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 1rem 0;
+    border-bottom: 1px solid #3a3a3a;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.mobile-nav-links a:hover {
+    color: #1d4ed8;
+    padding-left: 1rem;
+}
+
+.mobile-btn {
+    width: 100%;
+    margin-top: auto;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    nav {
+        padding: 1.5rem 1rem;
+    }
+    
+    .nav-links,
+    .btn {
+        display: none;
+    }
+    
+    .nav-toggle {
+        display: block;
+    }
+    
+    .mobile-menu-content {
+        width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 1rem;
+    }
+    
+    .nav-logo {
+        max-width: 80px;
+    }
+    
+    .mobile-menu-content {
+        width: 100%;
+        padding: 1.5rem;
+    }
+}
+
+/* Animaciones adicionales */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mobile-nav-links li {
+    animation: fadeInUp 0.3s ease forwards;
+    opacity: 0;
+}
+
+.mobile-menu.active .mobile-nav-links li:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.mobile-menu.active .mobile-nav-links li:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.mobile-menu.active .mobile-nav-links li:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.mobile-menu.active .mobile-btn {
+    animation: fadeInUp 0.3s ease 0.4s forwards;
+    opacity: 0;
+}
+
+/* Estados de focus para accesibilidad */
+.nav-toggle:focus,
+.mobile-menu-close:focus,
+.link a:focus,
+.btn:focus {
+    outline: 2px solid #1d4ed8;
+    outline-offset: 2px;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
 }
 </style>
