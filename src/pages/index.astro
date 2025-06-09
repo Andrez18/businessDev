@@ -1,11 +1,441 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+	<header class="container">
+    <div class="content">
+        <span class="blur"></span>
+        <span class="blur"></span>
+        <h4>IMPULSA TU NEGOCIO LOCAL</h4>
+        <h1>Hola, soy <span>Andrés</span> y desarrollo páginas y aplicaciones web</h1>
+        <p>¿Tienes un gimnasio, salón de uñas o tienda en Medellín y quieres tener tu propio sitio web? <br>¡Yo te ayudo! Diseños modernos, rápidos y pensados para atraer más clientes a tu negocio.</p>
+        <button class="btn">Cotiza tu sitio ahora</button>
+    </div>
+    <div class="image">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Desarrollador trabajando">
+    </div>
+    </header>
+
+	<section class="container">
+        <h2 class="header">¿QUÉ TE OFREZCO?</h2>
+        <div class="feactures">
+            <div class="card">
+                <span><i class="ri-money-dollar-box-line"></i></span>
+                <h4>Sitios para negocios</h4>
+                <p>Páginas web modernas, adaptadas a celulares, con tu información, servicios y contacto directo.</p>
+            </div>
+            <div class="card">
+                <span><i class="ri-bug-line"></i></span>
+                <h4>Soporte técnico</h4>
+                <p>Te ayudo a mantener tu sitio actualizado y sin errores. Mantenimiento técnico mensual disponible.</p>
+            </div>
+            <div class="card">
+                <span><i class="ri-history-line"></i></span>
+                <h4>Diseño rápido</h4>
+                <p>Entrega en menos de una semana. Nos reunimos, diseñamos y lanzamos tu sitio sin complicaciones.</p>
+            </div>
+            <div class="card">
+                <span><i class="ri-shake-hands-line"></i></span>
+                <h4>Trabajo colaborativo</h4>
+                <p>Escucho tus ideas y me adapto a tu negocio. Juntos creamos un sitio que represente tu marca.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="header">PLANES PARA TU NEGOCIO</h2>
+        <p class="sub-header">
+            Elige el plan que mejor se adapte a tus necesidades. Todos incluyen soporte y optimización para móviles.
+        </p>
+        <div class="pricing">
+            <div class="card">
+                <div class="content">
+                    <h4>Plan Básico</h4>
+                    <h3>$250.000 COP</h3>
+                    <p>
+                        <i class="ri-checkbox-circle-line"></i>
+                        Sitio web de 3 secciones
+                    </p>
+                    <p>
+                        <i class="ri-checkbox-circle-line"></i>
+                        Enlace a WhatsApp y redes
+                    </p>
+                </div>
+                <button class="btn">Join Now</button>
+            </div>
+            <div class="card">
+                <div class="content">
+                    <h4>Plan Profesional</h4>
+                    <h3>$400.000 COP</h3>
+                    <p>
+                        <i class="ri-checkbox-circle-line"></i>
+                        Hasta 5 secciones + galería
+                    </p>
+                    <p>
+                        <i class="ri-checkbox-circle-line"></i>
+                        Dominio y hosting por 1 año
+                    </p>
+                    <p>
+                        <i class="ri-checkbox-circle-line"></i>
+                        Formulario de contacto + mapa</p>
+                </div>
+                <button class="btn">Join Now</button>
+            </div>
+            <div class="card">
+                <div class="content">
+                    <h4>Plan Premium</h4>
+                    <h3>$600.000 COP</h3>
+                    <p>
+                        <i class="ri-checkbox-circle-line"></i>
+                        Todo lo del plan Profesional
+                    </p>
+                    <p>
+                        <i class="ri-checkbox-circle-line"></i>
+                        Blog, SEO inicial y mantenimiento
+                    </p>
+                    <p>
+                        <i class="ri-checkbox-circle-line"></i>
+                        Soporte mensual incluido
+                    </p>
+                </div>
+                <button class="btn">Join Now</button>
+            </div>
+        </div>
+    </section>
 </Layout>
+
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+}
+
+.btn{
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    color: #f4f4f4;
+    background-color: #1d4ed8;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover{
+    background-color: #1e40af;
+}
+
+.container{
+    max-width: 1200px;
+    margin: auto;
+    padding: 5rem 2rem;
+}
+
+.blur{
+    position: absolute;
+    box-shadow: 0 0 1000px 50px #1d4ed8;
+    z-index: -100;
+}
+
+header{
+    position: relative;
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 2rem;
+}
+
+header .content h4{
+    margin-bottom: 1rem;
+    color: #ccc;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+header .content h1{
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 4rem;
+}
+
+header .content h1 span{
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px #fff;
+}
+
+header .content p{
+    margin-bottom: 2rem;
+    color: #ccc;
+}
+
+header .image{
+    position: relative;
+}
+
+header .image::before{
+    content: "o";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 38rem;
+    font-weight: 400;
+    line-height: 20rem;
+    color: #1d4ed8;
+    opacity: 0.2;
+    z-index: -100;
+}
+
+header .image img{
+    max-width: 600px;
+    margin: auto;
+}
+
+section .header{
+    margin-bottom: 1rem;
+    color: #fff;
+    text-align: center;
+    font-size: 2.25rem;
+    font-weight: 600;
+}
+
+.feactures{
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.feactures .card{
+    background-color: #27272a;
+    padding: 1rem;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.feactures .card:hover{
+    background-color: #323232;
+    border-color: #fff;
+}
+
+.feactures .card span{
+    display: inline-block;
+    background-color: #1e40af;
+    padding: 2px 9px;
+    margin-bottom: 1rem;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.feactures .card h4{
+    margin-bottom: 0.5rem;
+    color: #ccc;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.feactures .card p{
+    color: #ccc;
+    margin-bottom: 1rem;
+}
+
+.feactures .card a{
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.feactures .card a:hover{
+    color: #1e40af;
+}
+
+.sub-header{
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    color: #ccc;
+}
+
+.pricing{
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.pricing .card{
+    padding: 3rem 2rem;
+    background-color: #27272a;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.pricing .card:hover{
+    background-color: #323232;
+    border-color: #fff;
+}
+
+.pricing .card .content{
+    flex: 1;
+    margin-bottom: 2rem;
+}
+
+.pricing .card h4{
+    margin-bottom: 1rem;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.pricing .card h3{
+    color: #fff;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 600;
+    border-bottom: 2px dashed #fff;
+}
+
+.pricing .card p{
+    color: #fff;
+    margin-bottom: 0.75rem;
+}
+
+.pricing .card p i{
+    color: #ccc;
+    font-size: 1.2rem;
+    margin-right: 0.4rem;
+}
+
+.pricing .card button{
+    color: #fff;
+    background-color: transparent;
+    border: 2px solid #fff;
+}
+
+.pricing .card button:hover{
+    background-color: #1e40af;
+    border-color: #1e40af;
+}
+
+footer{
+    position: relative;
+    display: grid;
+    grid-template-columns: 400px repeat(3, 1fr);
+    gap: 2rem;
+}
+
+footer .column .logo{
+    max-width: 100px;
+    margin-bottom: 2rem;
+}
+
+footer .column p{
+    color: #ccc;
+    margin-bottom: 2rem;
+}
+
+footer .column .socials{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+footer .column .socials a{
+    color: #ccc;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    font-size: 1.25rem;
+    border-radius: 100%;
+    transition: all 0.3s ease;
+}
+
+footer .column .socials a:hover{
+    color: #fff;
+    background-color: #1d4ed8;
+    border-color: #1d4ed8;
+}
+
+footer .column h4{
+    color: #ccc;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+footer .column > a{
+    display: block;
+    color: #ccc;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+footer .column > a:hover{
+    color: #1d4ed8;
+}
+
+.copyright{
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem;
+    color: #fff;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+@media (width < 900px){
+    .nav-links{
+        display: none;
+    }
+
+    header{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    header .image{
+        grid-area: 1/1/2/2 ;
+    }
+
+    .feactures{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pricing{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    footer{
+        grid-template-columns: 1fr 200px;
+    }
+}
+
+@media (width < 600px){
+    header .image::before{
+        display: none;
+    }
+
+    .feactures{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .pricing{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    footer{
+        grid-template-columns: 1fr 150px;
+    }
+}
+</style>

@@ -1,0 +1,1374 @@
+   ---
+   import Layout from "../layouts/Layout.astro"
+   ---
+<Layout>
+    <div class="modal-overlay">
+        <div class="cotizacion-modal">
+            <div class="modal-header">
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+                <h2>💡 Cotización Gratuita</h2>
+                <p>Cuéntame sobre tu proyecto y te daré un presupuesto personalizado</p>
+            </div>
+
+            <div class="modal-body">
+                <form class="cotizacion-form" id="cotizacionForm">
+                    <!-- Información Personal -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            👤 Información Personal
+                        </h3>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="form-group">
+                                <label>Nombre <span class="required">*</span></label>
+                                <input type="text" name="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Empresa/Negocio</label>
+                                <input type="text" name="empresa">
+                            </div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="form-group">
+                                <label>Email <span class="required">*</span></label>
+                                <input type="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Teléfono/WhatsApp <span class="required">*</span></label>
+                                <input type="tel" name="telefono" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tipo de Proyecto -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            🎯 Tipo de Proyecto
+                        </h3>
+                        <div class="form-group">
+                            <label>¿Qué tipo de sitio web necesitas? <span class="required">*</span></label>
+                            <select name="tipoSitio" required onchange="updateEstimate()">
+                                <option value="">Selecciona una opción</option>
+                                <option value="landing">Página de Presentación/Landing Page</option>
+                                <option value="corporativo">Sitio Web Corporativo</option>
+                                <option value="ecommerce">Tienda Online/E-commerce</option>
+                                <option value="restaurante">Sitio para Restaurante</option>
+                                <option value="salon">Sitio para Salón de Belleza</option>
+                                <option value="gimnasio">Sitio para Gimnasio/Spa</option>
+                                <option value="servicios">Sitio de Servicios Profesionales</option>
+                                <option value="blog">Blog/Portal de Contenido</option>
+                                <option value="personalizado">Proyecto Personalizado</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Funcionalidades -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            ⚙️ Funcionalidades Deseadas
+                        </h3>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="funcionalidades" value="reservas" onchange="updateEstimate()">
+                                <span>Sistema de Reservas/Citas</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="funcionalidades" value="pagos" onchange="updateEstimate()">
+                                <span>Pagos Online</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="funcionalidades" value="chat" onchange="updateEstimate()">
+                                <span>Chat en Vivo</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="funcionalidades" value="galeria" onchange="updateEstimate()">
+                                <span>Galería de Fotos</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="funcionalidades" value="blog" onchange="updateEstimate()">
+                                <span>Blog/Noticias</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="funcionalidades" value="multiidioma" onchange="updateEstimate()">
+                                <span>Múltiples Idiomas</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="funcionalidades" value="usuarios" onchange="updateEstimate()">
+                                <span>Área de Usuarios</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="funcionalidades" value="inventario" onchange="updateEstimate()">
+                                <span>Gestión de Inventario</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Presupuesto -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            💰 Presupuesto Aproximado
+                        </h3>
+                        <div class="budget-range">
+                            <div class="budget-option">
+                                <input type="radio" name="presupuesto" value="1-2" id="budget1" onchange="updateEstimate()">
+                                <label for="budget1" class="budget-label">
+                                    $1M - $2M COP<br>
+                                    <small>Proyecto Básico</small>
+                                </label>
+                            </div>
+                            <div class="budget-option">
+                                <input type="radio" name="presupuesto" value="2-3" id="budget2" onchange="updateEstimate()">
+                                <label for="budget2" class="budget-label">
+                                    $2M - $3M COP<br>
+                                    <small>Proyecto Intermedio</small>
+                                </label>
+                            </div>
+                            <div class="budget-option">
+                                <input type="radio" name="presupuesto" value="3-5" id="budget3" onchange="updateEstimate()">
+                                <label for="budget3" class="budget-label">
+                                    $3M - $5M COP<br>
+                                    <small>Proyecto Avanzado</small>
+                                </label>
+                            </div>
+                            <div class="budget-option">
+                                <input type="radio" name="presupuesto" value="5+" id="budget4" onchange="updateEstimate()">
+                                <label for="budget4" class="budget-label">
+                                    $5M+ COP<br>
+                                    <small>Proyecto Premium</small>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            ⏰ ¿Cuándo necesitas el proyecto?
+                        </h3>
+                        <div class="timeline-options">
+                            <button type="button" class="timeline-btn" onclick="selectTimeline(this, 'urgente')">Lo antes posible</button>
+                            <button type="button" class="timeline-btn" onclick="selectTimeline(this, '1mes')">En 1 mes</button>
+                            <button type="button" class="timeline-btn" onclick="selectTimeline(this, '2-3meses')">2-3 meses</button>
+                            <button type="button" class="timeline-btn" onclick="selectTimeline(this, 'flexible')">Soy flexible</button>
+                        </div>
+                        <input type="hidden" name="timeline" id="selectedTimeline">
+                    </div>
+
+                    <!-- Detalles -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            📝 Detalles del Proyecto
+                        </h3>
+                        <div class="form-group">
+                            <label>Cuéntame más sobre tu proyecto</label>
+                            <textarea name="detalles" placeholder="Describe tu negocio, qué quieres lograr con el sitio web, si tienes alguna referencia, colores preferidos, etc."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Estimación -->
+                    <div class="estimated-cost" id="estimatedCost" style="display: none;">
+                        <h3>Estimación Inicial</h3>
+                        <div class="cost-amount" id="costAmount">$2.500.000 - $3.200.000 COP</div>
+                        <p class="cost-note">*Precio estimado basado en tu selección. El precio final se definirá tras el análisis detallado.</p>
+                    </div>
+
+                    <!-- Beneficios -->
+                    <div class="benefits-list">
+                        <h4>✨ Qué incluye tu cotización:</h4>
+                        <ul>
+                            <li>Análisis detallado de tus necesidades</li>
+                            <li>Propuesta personalizada con mockups</li>
+                            <li>Cronograma de desarrollo</li>
+                            <li>Presupuesto detallado sin sorpresas</li>
+                            <li>Consulta gratuita de 30 minutos</li>
+                            <li>Garantía de satisfacción</li>
+                        </ul>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            🚀 Enviar Solicitud de Cotización
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="closeModal()">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .cotizacion-modal {
+            background: #1a1a1a;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px rgba(29, 78, 216, 0.3);
+            border: 1px solid #333;
+            animation: slideUp 0.4s ease;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+            padding: 2rem;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .modal-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .modal-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .cotizacion-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-section {
+            background: #2a2a2a;
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid #333;
+        }
+
+        .section-title {
+            color: #1d4ed8;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        label {
+            display: block;
+            color: #e5e5e5;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .required {
+            color: #ef4444;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: #1a1a1a;
+            border: 2px solid #333;
+            border-radius: 8px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #1d4ed8;
+            box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: #1a1a1a;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-item:hover {
+            border-color: #1d4ed8;
+            background: rgba(29, 78, 216, 0.1);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+
+        .budget-range {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .budget-option {
+            position: relative;
+        }
+
+        .budget-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .budget-label {
+            display: block;
+            padding: 1rem;
+            background: #1a1a1a;
+            border: 2px solid #333;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .budget-option input[type="radio"]:checked + .budget-label {
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+            border-color: #1d4ed8;
+            color: #fff;
+        }
+
+        .budget-label:hover {
+            border-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .timeline-options {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .timeline-btn {
+            padding: 0.75rem 1.5rem;
+            background: #1a1a1a;
+            border: 2px solid #333;
+            border-radius: 25px;
+            color: #ccc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+
+        .timeline-btn:hover,
+        .timeline-btn.active {
+            background: #1d4ed8;
+            border-color: #1d4ed8;
+            color: #fff;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(29, 78, 216, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(29, 78, 216, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ccc;
+            border: 2px solid #333;
+        }
+
+        .btn-secondary:hover {
+            border-color: #1d4ed8;
+            color: #1d4ed8;
+        }
+
+        .estimated-cost {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .estimated-cost h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cost-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .cost-note {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        .benefits-list {
+            background: #2a2a2a;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-top: 1rem;
+        }
+
+        .benefits-list h4 {
+            color: #1d4ed8;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .benefits-list ul {
+            list-style: none;
+        }
+
+        .benefits-list li {
+            color: #ccc;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .benefits-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .modal-body {
+                padding: 1.5rem;
+            }
+
+            .modal-header {
+                padding: 1.5rem;
+            }
+
+            .modal-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .checkbox-group,
+            .budget-range {
+                grid-template-columns: 1fr;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+function closeModal() {
+    document.querySelector('.modal-overlay').style.display = 'none';
+}
+
+// Custom alert system
+function createCustomAlert(title, message, type = 'success', showPrice = null) {
+    // Remove existing alerts
+    const existingAlert = document.querySelector('.custom-alert-overlay');
+    if (existingAlert) {
+        existingAlert.remove();
+    }
+    
+    // Create alert overlay
+    const alertOverlay = document.createElement('div');
+    alertOverlay.className = 'custom-alert-overlay';
+    alertOverlay.innerHTML = `
+        <div class="custom-alert ${type}">
+            <div class="alert-header">
+                <div class="alert-icon">
+                    ${getAlertIcon(type)}
+                </div>
+                <button class="alert-close" onclick="closeCustomAlert()">×</button>
+            </div>
+            <div class="alert-content">
+                <h3 class="alert-title">${title}</h3>
+                <p class="alert-message">${message}</p>
+                ${showPrice ? `
+                    <div class="price-display">
+                        <div class="price-icon">💰</div>
+                        <div class="price-info">
+                            <span class="price-label">Precio aproximado</span>
+                            <span class="price-amount">${showPrice}</span>
+                        </div>
+                    </div>
+                ` : ''}
+            </div>
+            <div class="alert-footer">
+                <button class="alert-btn primary" onclick="closeCustomAlert()">
+                    <span>Entendido</span>
+                    <span class="btn-icon">✓</span>
+                </button>
+            </div>
+        </div>
+    `;
+    
+    // Add styles
+    const alertStyles = `
+        <style>
+        .custom-alert-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        .custom-alert {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            max-width: 480px;
+            width: 90%;
+            margin: 20px;
+            overflow: hidden;
+            animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .custom-alert.success {
+            border-top: 4px solid #10b981;
+        }
+        
+        .custom-alert.error {
+            border-top: 4px solid #ef4444;
+        }
+        
+        .custom-alert.warning {
+            border-top: 4px solid #f59e0b;
+        }
+        
+        .alert-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 24px 0;
+        }
+        
+        .alert-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        .custom-alert.success .alert-icon {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+        }
+        
+        .custom-alert.error .alert-icon {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+        }
+        
+        .custom-alert.warning .alert-icon {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+        }
+        
+        .alert-close {
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: #64748b;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+        
+        .alert-close:hover {
+            background: #f1f5f9;
+            color: #475569;
+            transform: rotate(90deg);
+        }
+        
+        .alert-content {
+            padding: 16px 24px 24px;
+            text-align: center;
+        }
+        
+        .alert-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 0 0 12px 0;
+            line-height: 1.2;
+        }
+        
+        .alert-message {
+            font-size: 16px;
+            color: #64748b;
+            line-height: 1.6;
+            margin: 0 0 20px 0;
+        }
+        
+        .price-display {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border: 1px solid #0ea5e9;
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 20px;
+            animation: slideIn 0.5s ease-out 0.3s both;
+        }
+        
+        .price-icon {
+            font-size: 32px;
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: pulse 2s infinite;
+        }
+        
+        .price-info {
+            flex: 1;
+            text-align: left;
+        }
+        
+        .price-label {
+            display: block;
+            font-size: 14px;
+            color: #0369a1;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .price-amount {
+            display: block;
+            font-size: 18px;
+            font-weight: 700;
+            color: #0c4a6e;
+        }
+        
+        .alert-footer {
+            padding: 0 24px 24px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .alert-btn {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+        
+        .alert-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.5);
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+        }
+        
+        .alert-btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn-icon {
+            transition: transform 0.2s ease;
+        }
+        
+        .alert-btn:hover .btn-icon {
+            transform: scale(1.2);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) rotate(-180deg);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1) rotate(-10deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @media (max-width: 480px) {
+            .custom-alert {
+                margin: 10px;
+                border-radius: 16px;
+            }
+            
+            .alert-header {
+                padding: 20px 20px 0;
+            }
+            
+            .alert-content {
+                padding: 12px 20px 20px;
+            }
+            
+            .alert-footer {
+                padding: 0 20px 20px;
+            }
+            
+            .alert-title {
+                font-size: 20px;
+            }
+            
+            .alert-message {
+                font-size: 14px;
+            }
+            
+            .price-display {
+                padding: 16px;
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+            
+            .price-info {
+                text-align: center;
+            }
+        }
+        </style>
+    `;
+    
+    // Add styles to head if not already present
+    if (!document.querySelector('#custom-alert-styles')) {
+        const styleElement = document.createElement('div');
+        styleElement.id = 'custom-alert-styles';
+        styleElement.innerHTML = alertStyles;
+        document.head.appendChild(styleElement);
+    }
+    
+    // Add to body
+    document.body.appendChild(alertOverlay);
+    
+    // Auto close after 10 seconds for success alerts
+    if (type === 'success') {
+        setTimeout(() => {
+            closeCustomAlert();
+        }, 10000);
+    }
+}
+
+function getAlertIcon(type) {
+    const icons = {
+        success: '✅',
+        error: '❌',
+        warning: '⚠️',
+        info: 'ℹ️'
+    };
+    return icons[type] || icons.info;
+}
+
+function closeCustomAlert() {
+    const alertOverlay = document.querySelector('.custom-alert-overlay');
+    if (alertOverlay) {
+        alertOverlay.style.animation = 'fadeOut 0.3s ease-out';
+        setTimeout(() => {
+            alertOverlay.remove();
+        }, 300);
+    }
+}
+
+// Add fade out animation
+const fadeOutStyle = `
+    @keyframes fadeOut {
+        from { opacity: 1; }
+        to { opacity: 0; }
+    }
+`;
+if (!document.querySelector('#fade-out-style')) {
+    const style = document.createElement('style');
+    style.id = 'fade-out-style';
+    style.textContent = fadeOutStyle;
+    document.head.appendChild(style);
+}
+
+function selectTimeline(btn, value) {
+    // Remove active class from all buttons
+    document.querySelectorAll('.timeline-btn').forEach(b => b.classList.remove('active'));
+    // Add active class to clicked button
+    btn.classList.add('active');
+    // Set hidden input value
+    const hiddenInput = document.getElementById('selectedTimeline');
+    if (hiddenInput) {
+        hiddenInput.value = value;
+    }
+    // Also store in a global variable as backup
+    window.selectedTimelineValue = value;
+    console.log('Timeline selected:', value);
+}
+
+function updateEstimate() {
+    const tipoSitio = document.querySelector('select[name="tipoSitio"]').value;
+    const funcionalidades = document.querySelectorAll('input[name="funcionalidades"]:checked');
+    const presupuesto = document.querySelector('input[name="presupuesto"]:checked');
+    
+    if (tipoSitio) {
+        let basePrice = 0;
+        let maxPrice = 0;
+        
+        // Base prices by type
+        const prices = {
+            'landing': [1200000, 1800000],
+            'corporativo': [2000000, 3000000],
+            'ecommerce': [3500000, 6000000],
+            'restaurante': [2200000, 3500000],
+            'salon': [1800000, 2800000],
+            'gimnasio': [2500000, 4000000],
+            'servicios': [1500000, 2500000],
+            'blog': [1000000, 2000000],
+            'personalizado': [3000000, 8000000]
+        };
+        
+        if (prices[tipoSitio]) {
+            basePrice = prices[tipoSitio][0];
+            maxPrice = prices[tipoSitio][1];
+        }
+        
+        // Add functionality costs
+        const functionalityCosts = {
+            'reservas': 500000,
+            'pagos': 800000,
+            'chat': 300000,
+            'galeria': 200000,
+            'blog': 400000,
+            'multiidioma': 600000,
+            'usuarios': 700000,
+            'inventario': 900000
+        };
+        
+        let additionalCost = 0;
+        funcionalidades.forEach(func => {
+            if (functionalityCosts[func.value]) {
+                additionalCost += functionalityCosts[func.value];
+            }
+        });
+        
+        const finalMin = basePrice + additionalCost;
+        const finalMax = maxPrice + additionalCost;
+        
+        document.getElementById('costAmount').textContent = 
+            `$${finalMin.toLocaleString()} - $${finalMax.toLocaleString()} COP`;
+        document.getElementById('estimatedCost').style.display = 'block';
+        
+        // Store prices for email
+        window.currentEstimate = {
+            min: finalMin,
+            max: finalMax,
+            tipoSitio: tipoSitio,
+            funcionalidades: Array.from(funcionalidades).map(f => f.value),
+            additionalCost: additionalCost
+        };
+    }
+}
+
+function generateQuoteEmail(formData) {
+    const estimate = window.currentEstimate || {};
+    
+    // Get form values
+    const nombre = formData.get('nombre') || '';
+    const email = formData.get('email') || '';
+    const telefono = formData.get('telefono') || '';
+    const empresa = formData.get('empresa') || '';
+    const tipoSitio = formData.get('tipoSitio') || '';
+    const descripcion = formData.get('descripcion') || '';
+    const timeline = formData.get('timeline') || '';
+    const presupuesto = formData.get('presupuesto') || '';
+    
+    // Get selected functionalities
+    const funcionalidades = Array.from(document.querySelectorAll('input[name="funcionalidades"]:checked'))
+        .map(f => f.parentElement.textContent.trim());
+    
+    // Type names in Spanish
+    const tipoNames = {
+        'landing': 'Landing Page',
+        'corporativo': 'Sitio Corporativo',
+        'ecommerce': 'E-commerce',
+        'restaurante': 'Sitio de Restaurante',
+        'salon': 'Sitio de Salón de Belleza',
+        'gimnasio': 'Sitio de Gimnasio',
+        'servicios': 'Sitio de Servicios',
+        'blog': 'Blog',
+        'personalizado': 'Sitio Personalizado'
+    };
+    
+    // Timeline names
+    const timelineNames = {
+        '1-2': '1-2 semanas',
+        '3-4': '3-4 semanas',
+        '1-2m': '1-2 meses',
+        '3m+': '3+ meses'
+    };
+    
+    // Calculate approximate price
+    let precioAproximado = '';
+    if (estimate.min && estimate.max) {
+        const promedio = Math.round((estimate.min + estimate.max) / 2);
+        precioAproximado = `$${promedio.toLocaleString()} COP (promedio entre $${estimate.min.toLocaleString()} - $${estimate.max.toLocaleString()} COP)`;
+    }
+    
+    // Create email body
+    const emailBody = `
+📧 NUEVA SOLICITUD DE COTIZACIÓN
+═══════════════════════════════════════
+
+👤 INFORMACIÓN DEL CLIENTE:
+• Nombre: ${nombre}
+• Email: ${email}
+• Teléfono: ${telefono}
+• Empresa: ${empresa || 'No especificada'}
+
+🌐 DETALLES DEL PROYECTO:
+• Tipo de sitio: ${tipoNames[tipoSitio] || tipoSitio}
+• Timeline: ${timelineNames[timeline] || timeline}
+• Presupuesto disponible: ${presupuesto || 'No especificado'}
+
+⚙️ FUNCIONALIDADES SOLICITADAS:
+${funcionalidades.length > 0 ? funcionalidades.map(f => `• ${f}`).join('\n') : '• Ninguna funcionalidad adicional seleccionada'}
+
+📝 DESCRIPCIÓN DEL PROYECTO:
+${descripcion || 'No se proporcionó descripción adicional'}
+
+💰 PRECIO APROXIMADO CALCULADO:
+${precioAproximado || 'No se pudo calcular (falta información del tipo de sitio)'}
+
+═══════════════════════════════════════
+Fecha de solicitud: ${new Date().toLocaleString('es-CO')}
+    `.trim();
+    
+    return emailBody;
+}
+
+// Initialize EmailJS
+function initEmailJS() {
+    // Initialize EmailJS with your public key
+    emailjs.init("fGSpD4JcxOxevRcBo"); // Reemplaza con tu clave pública de EmailJS
+}
+
+function sendEmailDirectly(emailData) {
+    return emailjs.send(
+        "service_p9cyut8", // Reemplaza con tu Service ID de EmailJS
+        "template_41ppyw3", // Reemplaza con tu Template ID de EmailJS
+        {
+            to_email: "dev.andres18@gmail.com",
+            from_name: emailData.nombre,
+            from_email: emailData.email,
+            subject: "Nueva Solicitud de Cotización Web",
+            message: emailData.emailBody,
+            cliente_nombre: emailData.nombre,
+            cliente_email: emailData.email,
+            cliente_telefono: emailData.telefono,
+            cliente_empresa: emailData.empresa,
+            proyecto_tipo: emailData.tipoSitio,
+            proyecto_timeline: emailData.timeline,
+            proyecto_presupuesto: emailData.presupuesto,
+            proyecto_funcionalidades: emailData.funcionalidades,
+            proyecto_descripcion: emailData.descripcion,
+            precio_aproximado: emailData.precioAproximado
+        }
+    );
+}
+
+document.getElementById('cotizacionForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    
+    // Validate required fields
+    const requiredFields = ['nombre', 'email', 'telefono', 'tipoSitio'];
+    const missingFields = [];
+    
+    requiredFields.forEach(field => {
+        if (!formData.get(field) || formData.get(field).trim() === '') {
+            missingFields.push(field);
+        }
+    });
+    
+    if (missingFields.length > 0) {
+        const fieldNames = {
+            'nombre': 'Nombre',
+            'email': 'Email',
+            'telefono': 'Teléfono',
+            'tipoSitio': 'Tipo de sitio'
+        };
+        const missingFieldsText = missingFields.map(field => fieldNames[field] || field).join(', ');
+        createCustomAlert(
+            '📝 Campos requeridos',
+            `Por favor completa los siguientes campos obligatorios: ${missingFieldsText}`,
+            'warning'
+        );
+        return;
+    }
+    
+    // Validate email format
+    const email = formData.get('email');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        createCustomAlert(
+            '📧 Email inválido',
+            'Por favor ingresa una dirección de email válida para poder contactarte.',
+            'error'
+        );
+        return;
+    }
+    
+    // Get timeline from hidden input or global variable
+    let timeline = document.getElementById('selectedTimeline')?.value || window.selectedTimelineValue;
+    if (!timeline) {
+        createCustomAlert(
+            '⏰ Selecciona timeline',
+            'Por favor selecciona un tiempo estimado para completar tu proyecto.',
+            'warning'
+        );
+        return;
+    }
+    
+    // Simulate form submission
+    const submitBtn = document.querySelector('.btn-primary');
+    const originalText = submitBtn.innerHTML;
+    
+    submitBtn.innerHTML = '⏳ Enviando cotización...';
+    submitBtn.disabled = true;
+    
+    // Prepare email data
+    const emailData = {
+        nombre: formData.get('nombre'),
+        email: formData.get('email'),
+        telefono: formData.get('telefono'),
+        empresa: formData.get('empresa') || 'No especificada',
+        tipoSitio: formData.get('tipoSitio'),
+        timeline: timeline,
+        presupuesto: formData.get('presupuesto') || 'No especificado',
+        descripcion: formData.get('descripcion') || 'No se proporcionó descripción adicional',
+        funcionalidades: Array.from(document.querySelectorAll('input[name="funcionalidades"]:checked'))
+            .map(f => f.parentElement.textContent.trim()).join(', ') || 'Ninguna funcionalidad adicional'
+    };
+    
+    // Calculate approximate price
+    if (window.currentEstimate && window.currentEstimate.min) {
+        const promedio = Math.round((window.currentEstimate.min + window.currentEstimate.max) / 2);
+        emailData.precioAproximado = `${promedio.toLocaleString()} COP (Rango: ${window.currentEstimate.min.toLocaleString()} - ${window.currentEstimate.max.toLocaleString()} COP)`;
+    } else {
+        emailData.precioAproximado = 'No se pudo calcular (falta información del tipo de sitio)';
+    }
+    
+    // Generate email body
+    emailData.emailBody = generateQuoteEmail(formData);
+    
+    setTimeout(() => {
+        // Try to send email directly with EmailJS
+        if (typeof emailjs !== 'undefined') {
+            sendEmailDirectly(emailData)
+                .then(() => {
+                    showSuccessMessage(emailData.precioAproximado);
+                    resetFormAndClose();
+                })
+                .catch((error) => {
+                    console.error('EmailJS failed:', error);
+                    // Fallback to mailto
+                    fallbackEmailSend(emailData);
+                });
+        } else {
+            // Fallback if EmailJS is not loaded
+            fallbackEmailSend(emailData);
+        }
+        
+        // Restore button
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+    }, 1500);
+});
+
+function fallbackEmailSend(emailData) {
+    // Copy to clipboard and show instructions
+    navigator.clipboard.writeText(emailData.emailBody).then(() => {
+        createCustomAlert(
+            '📧 Cotización preparada',
+            'La información se ha copiado al portapapeles. Te contactaré en las próximas 24 horas para coordinar una llamada.',
+            'success',
+            emailData.precioAproximado
+        );
+    }).catch(() => {
+        createCustomAlert(
+            '📧 Cotización recibida',
+            'Te contactaré en las próximas 24 horas para coordinar una llamada y afinar los detalles de tu proyecto.',
+            'success',
+            emailData.precioAproximado
+        );
+    });
+    
+    resetFormAndClose();
+}
+
+function showSuccessMessage(precioAproximado) {
+    createCustomAlert(
+        '🎉 ¡Cotización enviada!',
+        'La información ha sido enviada exitosamente. Te contactaré en las próximas 24 horas para coordinar una llamada y afinar todos los detalles.',
+        'success',
+        precioAproximado
+    );
+}
+
+function resetFormAndClose() {
+    // Reset form and close modal
+    document.getElementById('cotizacionForm').reset();
+    document.getElementById('estimatedCost').style.display = 'none';
+    document.querySelectorAll('.timeline-btn').forEach(b => b.classList.remove('active'));
+    window.currentEstimate = null;
+    window.selectedTimelineValue = null;
+    const hiddenInput = document.getElementById('selectedTimeline');
+    if (hiddenInput) hiddenInput.value = '';
+    closeModal();
+}
+
+// Prevent modal close when clicking inside
+document.querySelector('.cotizacion-modal').addEventListener('click', function(e) {
+    e.stopPropagation();
+});
+
+// Close modal when clicking overlay
+document.querySelector('.modal-overlay').addEventListener('click', closeModal);
+
+// Update estimate when form changes
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize EmailJS if available
+    if (typeof emailjs !== 'undefined') {
+        initEmailJS();
+    }
+    
+    // Add event listeners to form elements
+    const tipoSitioSelect = document.querySelector('select[name="tipoSitio"]');
+    const funcionalidadesCheckboxes = document.querySelectorAll('input[name="funcionalidades"]');
+    
+    if (tipoSitioSelect) {
+        tipoSitioSelect.addEventListener('change', updateEstimate);
+    }
+    
+    funcionalidadesCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', updateEstimate);
+    });
+    
+    // Add click event listeners to timeline buttons
+    document.querySelectorAll('.timeline-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const value = this.getAttribute('onclick')?.match(/selectTimeline\(this,\s*'([^']+)'/)?.[1] || 
+                         this.dataset.value || 
+                         this.textContent.trim();
+            selectTimeline(this, value);
+        });
+    });
+    
+    // Ensure timeline buttons work with any existing onclick attributes
+    const timelineButtons = document.querySelectorAll('[onclick*="selectTimeline"]');
+    timelineButtons.forEach(btn => {
+        // Remove existing onclick to avoid conflicts
+        const onclickValue = btn.getAttribute('onclick');
+        if (onclickValue) {
+            const match = onclickValue.match(/selectTimeline\(this,\s*'([^']+)'/);
+            if (match) {
+                btn.dataset.timelineValue = match[1];
+                btn.removeAttribute('onclick');
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    selectTimeline(this, this.dataset.timelineValue);
+                });
+            }
+        }
+    });
+});
+    </script>

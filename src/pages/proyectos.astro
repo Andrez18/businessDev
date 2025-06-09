@@ -1,0 +1,474 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+---
+
+<Layout>
+    <header class="container">
+        <div class="content">
+            <span class="blur"></span>
+            <span class="blur"></span>
+            <h4>MIS TRABAJOS REALIZADOS</h4>
+            <h1>Proyectos que han <span>transformado</span> negocios locales</h1>
+            <p>Conoce algunos de los sitios web que he desarrollado para negocios en Medellín. <br>Cada proyecto está diseñado para atraer más clientes y hacer crecer el negocio.</p>
+        </div>
+        <div class="image">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80" alt="Proyectos web realizados">
+        </div>
+    </header>
+
+    <section class="container">
+        <h2 class="header">PROYECTOS DESTACADOS</h2>
+        <p class="sub-header">
+            Desde gimnasios hasta salones de belleza, he ayudado a diferentes tipos de negocios a tener presencia digital.
+        </p>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Sistema de Gestión Tienda Mónica">
+                    <div class="overlay">
+                        <div class="project-status">
+                            <span class="status-badge">Proyecto Privado</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <span class="category">Sistema de Gestión</span>
+                    <h3>Tienda Mónica</h3>
+                    <p>Sistema web completo para gestión de inventario, ventas y clientes. Incluye reportes, control de stock y facturación digital.</p>
+                    <div class="tech-stack">
+                        <span>Inventario</span>
+                        <span>Facturación</span>
+                        <span>Reportes</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Cafetería Aroma Paisa">
+                    <div class="overlay">
+                        <div class="project-status">
+                            <span class="status-badge">Proyecto Privado</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <span class="category">Cafetería</span>
+                    <h3>Aroma Paisa</h3>
+                    <p>Sitio web elegante para cafetería especializada con menú digital, historia del café y sistema de pedidos online.</p>
+                    <div class="tech-stack">
+                        <span>Menú Digital</span>
+                        <span>Pedidos</span>
+                        <span>Storytelling</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Sistema Natillera Comunitaria">
+                    <div class="overlay">
+                        <div class="project-status">
+                            <span class="status-badge">Proyecto Privado</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <span class="category">Sistema Financiero</span>
+                    <h3>Natillera Comunitaria</h3>
+                    <p>Sistema web para gestión de préstamos comunitarios con control de aportes, historial de transacciones y administración del fondo compartido.</p>
+                    <div class="tech-stack">
+                        <span>Aportes</span>
+                        <span>Préstamos</span>
+                        <span>Historial</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h3>¿Te gusta lo que ves?</h3>
+            <p>Tu negocio también puede tener un sitio web profesional que atraiga más clientes</p>
+            <button class="btn">Cotiza tu proyecto ahora</button>
+        </div>
+    </section>
+
+    <section class="container testimonials-section">
+        <h2 class="header">LO QUE DICEN MIS CLIENTES</h2>
+        <div class="testimonials">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"El sistema de gestión que Andrés me hizo para mi tienda ha sido increíble. Ahora controlo todo mi inventario y ventas desde cualquier lugar."</p>
+                <div class="client">
+                    <strong>Mónica Herrera</strong>
+                    <span>Tienda Mónica</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"Mi cafetería ahora tiene una presencia online espectacular. Los clientes pueden ver nuestro menú y hacer pedidos fácilmente desde la página."</p>
+                <div class="client">
+                    <strong>Juan Carlos Restrepo</strong>
+                    <span>Aroma Paisa</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"El sistema de natillera que desarrolló Andrés nos ha facilitado mucho la administración del grupo. Ahora todos podemos ver los aportes y préstamos en tiempo real."</p>
+                <div class="client">
+                    <strong>Leydi Marcela</strong>
+                    <span>Natillera Comunitaria</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap');
+
+    * {
+        padding: 0;
+        margin: 0;
+        outline: none;
+        border: none;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #0a0a0a;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .btn {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        color: #f4f4f4;
+        background-color: #1d4ed8;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: #1e40af;
+    }
+
+    .btn-view {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+        color: #fff;
+        background-color: #1d4ed8;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+    }
+
+    .btn-view:hover {
+        background-color: #1e40af;
+        transform: translateY(-2px);
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 5rem 2rem;
+    }
+
+    .blur {
+        position: absolute;
+        box-shadow: 0 0 1000px 50px #1d4ed8;
+        z-index: -100;
+    }
+
+    header {
+        position: relative;
+        padding-top: 2rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        gap: 2rem;
+    }
+
+    header .content h4 {
+        margin-bottom: 1rem;
+        color: #ccc;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    header .content h1 {
+        color: #fff;
+        margin-bottom: 1rem;
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: 4rem;
+    }
+
+    header .content h1 span {
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 1px #fff;
+    }
+
+    header .content p {
+        margin-bottom: 2rem;
+        color: #ccc;
+    }
+
+    header .image {
+        position: relative;
+    }
+
+    header .image::before {
+        content: "P";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 38rem;
+        font-weight: 400;
+        line-height: 20rem;
+        color: #1d4ed8;
+        opacity: 0.2;
+        z-index: -100;
+    }
+
+    header .image img {
+        max-width: 600px;
+        margin: auto;
+        border-radius: 15px;
+    }
+
+    .header {
+        margin-bottom: 1rem;
+        color: #fff;
+        text-align: center;
+        font-size: 2.25rem;
+        font-weight: 600;
+    }
+
+    .sub-header {
+        max-width: 600px;
+        margin: auto;
+        text-align: center;
+        color: #ccc;
+        margin-bottom: 4rem;
+    }
+
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-bottom: 4rem;
+    }
+
+    .project-card {
+        background-color: #27272a;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+    }
+
+    .project-card:hover {
+        border-color: #1d4ed8;
+        transform: translateY(-5px);
+    }
+
+    .project-image {
+        position: relative;
+        height: 250px;
+        overflow: hidden;
+    }
+
+    .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.3s ease;
+    }
+
+    .project-card:hover .project-image img {
+        transform: scale(1.05);
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .project-card:hover .overlay {
+        opacity: 1;
+    }
+
+    .project-status {
+        text-align: center;
+    }
+
+    .status-badge {
+        background-color: #dc2626;
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        display: inline-block;
+        border: 2px solid #fff;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .project-info {
+        padding: 1.5rem;
+    }
+
+    .category {
+        display: inline-block;
+        background-color: #1d4ed8;
+        color: #fff;
+        padding: 0.25rem 0.75rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+
+    .project-info h3 {
+        color: #fff;
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+    }
+
+    .project-info p {
+        color: #ccc;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+    }
+
+    .tech-stack {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .tech-stack span {
+        background-color: #1e1e1e;
+        color: #ccc;
+        padding: 0.25rem 0.5rem;
+        border-radius: 5px;
+        font-size: 0.75rem;
+    }
+
+    .cta-section {
+        text-align: center;
+        padding: 3rem 2rem;
+        background-color: #27272a;
+        border-radius: 15px;
+        margin-top: 2rem;
+    }
+
+    .cta-section h3 {
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+        color: #ccc;
+        margin-bottom: 2rem;
+    }
+
+    .testimonials-section {
+        padding-top: 3rem;
+    }
+
+    .testimonials {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .testimonial-card {
+        background-color: #27272a;
+        padding: 2rem;
+        border-radius: 15px;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+        border-color: #1d4ed8;
+    }
+
+    .stars {
+        color: #ffd700;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .testimonial-card p {
+        color: #ccc;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        font-style: italic;
+    }
+
+    .client strong {
+        color: #fff;
+        display: block;
+        margin-bottom: 0.25rem;
+    }
+
+    .client span {
+        color: #1d4ed8;
+        font-size: 0.9rem;
+    }
+
+    @media (width < 900px) {
+        header {
+            grid-template-columns: 1fr;
+        }
+
+        header .image {
+            grid-area: 1/1/2/2;
+        }
+
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .testimonials {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (width < 600px) {
+        header .image::before {
+            display: none;
+        }
+
+        header .content h1 {
+            font-size: 2rem;
+            line-height: 2.5rem;
+        }
+
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
