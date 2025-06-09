@@ -395,47 +395,76 @@ footer .column > a:hover{
     text-align: center;
 }
 
-@media (width < 900px){
-    .nav-links{
-        display: none;
+@media (max-width: 1024px) {
+    header {
+        grid-template-columns: 1fr;
+        text-align: center;
     }
 
-    header{
-        grid-template-columns: repeat(1, 1fr);
+    header .content h1 {
+        font-size: 2.5rem;
+        line-height: 3.5rem;
     }
 
-    header .image{
-        grid-area: 1/1/2/2 ;
+    header .image::before {
+        font-size: 28rem;
     }
 
-    .feactures{
+    .feactures {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .pricing{
+    .pricing {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    footer{
-        grid-template-columns: 1fr 200px;
+    footer {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
-@media (width < 600px){
-    header .image::before{
+@media (max-width: 768px) {
+    header {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    header .image {
         display: none;
     }
 
-    .feactures{
-        grid-template-columns: repeat(1, 1fr);
+    .feactures {
+        grid-template-columns: 1fr;
     }
 
-    .pricing{
-        grid-template-columns: repeat(1, 1fr);
+    .pricing {
+        grid-template-columns: 1fr;
     }
 
-    footer{
-        grid-template-columns: 1fr 150px;
+    footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 480px) {
+    header .content h1 {
+        font-size: 1.6rem;
+        line-height: 2.5rem;
+    }
+
+    header .content p {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 0.75rem 1.5rem;
+    }
+
+    .pricing .card {
+        padding: 2rem 1rem;
     }
 }
 </style>
