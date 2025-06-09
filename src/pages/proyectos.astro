@@ -457,6 +457,27 @@ import Layout from '../layouts/Layout.astro';
         }
     }
 
+    @media (max-width: 768px) {
+    header {
+        grid-template-columns: 1fr; /* Solo una columna */
+        text-align: center; /* Centrar contenido */
+    }
+
+    header .image {
+        display: none; /* Ocultar imagen */
+    }
+
+    header .content h1 {
+        font-size: 2rem;
+        line-height: 2.8rem;
+    }
+
+    header .content p {
+        font-size: 0.95rem;
+    }
+}
+
+
     @media (width < 600px) {
         header .image::before {
             display: none;
