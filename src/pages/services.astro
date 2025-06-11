@@ -10,7 +10,16 @@ import Layout from '../layouts/Layout.astro';
             <h4>MIS SERVICIOS</h4>
             <h1>Soluciones web para <span>tu negocio</span> en Medellín</h1>
             <p>Desde páginas web básicas hasta aplicaciones completas, ofrezco servicios diseñados específicamente para impulsar negocios locales como gimnasios, salones de belleza, restaurantes y tiendas.</p>
-            <a href="/cotizacion"><button class="btn">Solicita una cotización</button></a>
+            <div class="buttons-initial">
+                <div class="email-copy">
+                    <button class="btn-copy" id="copyEmail">
+                        <i class="ri-mail-line"></i>
+                        dev.andrez18@gmail.com
+                    </button>
+                    <span class="copy-tooltip">Click para copiar</span>
+                </div>            
+                <a href="/cotizacion"><button class="btn">Solicita una cotización</button></a>
+            </div>
         </div>
         <div class="image">
             <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80" alt="Servicios de desarrollo web">
@@ -33,7 +42,7 @@ import Layout from '../layouts/Layout.astro';
                     <span>• Formularios de contacto</span>
                 </div>
                 <div class="price">Desde $250.000 COP</div>
-                <button class="btn">Más información</button>
+                <button class="btn" data-service="business-website">Más información</button>
             </div>
 
             <div class="service-card">
@@ -49,7 +58,7 @@ import Layout from '../layouts/Layout.astro';
                     <span>• Reportes y estadísticas</span>
                 </div>
                 <div class="price">Desde $850.000 COP</div>
-                <button class="btn">Más información</button>
+                <button class="btn" data-service="web-app">Más información</button>
             </div>
         </div>
     </section>
@@ -68,6 +77,7 @@ import Layout from '../layouts/Layout.astro';
                         <li>Calculadora de IMC</li>
                         <li>Blog de fitness</li>
                     </ul>
+                    <button class="btn" data-service="gym">Más información</button>
                 </div>
                 <div class="service-image">
                     <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Gimnasio">
@@ -85,6 +95,7 @@ import Layout from '../layouts/Layout.astro';
                         <li>Perfiles de estilistas</li>
                         <li>Blog de tendencias</li>
                     </ul>
+                    <button class="btn" data-service="beauty">Más información</button>
                 </div>
                 <div class="service-image">
                     <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80" alt="Salón de belleza">
@@ -102,6 +113,7 @@ import Layout from '../layouts/Layout.astro';
                         <li>Galería de platos</li>
                         <li>Sistema de reseñas</li>
                     </ul>
+                    <button class="btn" data-service="restaurant">Más información</button>
                 </div>
                 <div class="service-image">
                     <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Restaurante">
@@ -156,10 +168,21 @@ import Layout from '../layouts/Layout.astro';
             </div>
         </div>
     </section>
+
+    <!-- Modal -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <div id="modalBody">
+                <!-- El contenido se carga dinámicamente -->
+            </div>
+        </div>
+    </div>
 </Layout>
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap');
+    @import url('https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css');
 
     * {
         padding: 0;
@@ -167,12 +190,6 @@ import Layout from '../layouts/Layout.astro';
         outline: none;
         border: none;
         box-sizing: border-box;
-    }
-
-    body {
-        font-family: 'Poppins', sans-serif;
-        background-color: #0f0f0f;
-        color: #fff;
     }
 
     .btn {
@@ -193,15 +210,46 @@ import Layout from '../layouts/Layout.astro';
         transform: translateY(-2px);
     }
 
-    .btn.secondary {
-        background-color: transparent;
-        border: 2px solid #1d4ed8;
-        color: #1d4ed8;
+    .email-copy {
+        margin-bottom: 1rem;
+        position: relative;
     }
 
-    .btn.secondary:hover {
-        background-color: #1d4ed8;
+    .btn-copy {
+        background-color: #27272a;
         color: #fff;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: inherit;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        border: 1px solid #3f3f46;
+    }
+
+    .btn-copy:hover {
+        background-color: #3f3f46;
+        transform: translateY(-2px);
+    }
+    
+    .btn-copy i {
+        color: #1d4ed8;
+    }
+    
+    .btn-copy.copied {
+        background-color: #059669;
+        border-color: #059669;
+    }
+    
+    .copy-tooltip {
+        font-size: 0.8rem;
+        color: #ccc;
+        opacity: 0.7;
+        display: flex;
+        padding: 0 1rem;
     }
 
     .container {
@@ -510,7 +558,161 @@ import Layout from '../layouts/Layout.astro';
         color: #fff;
     }
 
-    /* Responsive */
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.8);
+        backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+        background-color: #1a1a1a;
+        margin: 3% auto;
+        padding: 3%;
+        border-radius: 20px;
+        width: 90%;
+        max-width: 800px;
+        position: relative;
+        animation: modalSlideIn 0.3s ease-out;
+        border: 2px solid #1d4ed8;
+    }
+
+    @keyframes modalSlideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        z-index: 1001;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .modal-header {
+        background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+        padding: 2rem;
+        border-radius: 20px 20px 0 0;
+        text-align: center;
+    }
+
+    .modal-header h2 {
+        color: #fff;
+        margin: 0;
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    .modal-header .modal-icon {
+        font-size: 4rem;
+        color: #fff;
+        margin-bottom: 1rem;
+    }
+
+    .modal-body {
+        padding: 2rem;
+    }
+
+    .modal-section {
+        margin-bottom: 2rem;
+    }
+
+    .modal-section h3 {
+        color: #fff;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .modal-section p {
+        color: #ccc;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
+    .feature-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .feature-item {
+        background-color: #27272a;
+        padding: 1rem;
+        border-radius: 10px;
+        border-left: 4px solid #1d4ed8;
+    }
+
+    .feature-item h4 {
+        color: #fff;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+
+    .feature-item p {
+        color: #ccc;
+        font-size: 0.9rem;
+        margin: 0;
+    }
+
+    .price-section {
+        background: linear-gradient(135deg, #27272a 0%, #1a1a1a 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .price-section .price {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #1d4ed8;
+        margin-bottom: 0.5rem;
+    }
+
+    .price-section .price-note {
+        color: #ccc;
+        font-size: 0.9rem;
+    }
+
+    .modal-actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .modal-actions .btn {
+        flex: 1;
+        min-width: 200px;
+    }
+
     @media (width < 900px) {
         header {
             grid-template-columns: 1fr;
@@ -537,14 +739,23 @@ import Layout from '../layouts/Layout.astro';
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         }
 
-        .cta-buttons {
+        .cta-buttons, .modal-actions {
             flex-direction: column;
             align-items: center;
         }
 
-        .cta-buttons .btn {
+        .cta-buttons .btn, .modal-actions .btn {
             width: 100%;
             max-width: 300px;
+        }
+
+        .modal-content {
+            width: 95%;
+            margin: 2% auto;
+        }
+
+        .feature-list {
+            grid-template-columns: 1fr;
         }
     }
 
@@ -569,5 +780,338 @@ import Layout from '../layouts/Layout.astro';
         .container {
             padding: 3rem 1rem;
         }
+
+        .modal-header h2 {
+            font-size: 1.5rem;
+        }
+
+        .modal-header .modal-icon {
+            font-size: 3rem;
+        }
     }
 </style>
+
+<script>
+    const serviceData = {
+        'business-website': {
+            title: 'Páginas Web para Negocios',
+            icon: 'ri-computer-line',
+            description: 'Sitios web profesionales diseñados específicamente para negocios locales en Medellín',
+            price: 'Desde $250.000 COP',
+            priceNote: 'Precio final depende de funcionalidades específicas',
+            features: [
+                {
+                    title: 'Diseño Responsivo',
+                    description: '- Tu sitio web se verá perfecto en computadores, tablets y celulares'
+                },
+                {
+                    title: 'Optimización SEO',
+                    description: '- Configuración básica para aparecer en Google cuando busquen tu negocio'
+                },
+                {
+                    title: 'Integración Redes Sociales',
+                    description: '- Conecta tu sitio web con Facebook, Instagram y WhatsApp'
+                },
+                {
+                    title: 'Formularios de Contacto',
+                    description: '- Recibe mensajes de clientes potenciales directamente en tu email'
+                },
+                {
+                    title: 'Galería de Imágenes',
+                    description: '- Muestra tus productos, servicios o instalaciones de forma atractiva'
+                },
+                {
+                    title: 'Mapa de Ubicación',
+                    description: '- Integración con Google Maps para que tus clientes te encuentren fácilmente'
+                }
+            ],
+            details: '- Incluye hasta 5 páginas (Inicio, Servicios, Sobre Nosotros, Galería, Contacto), dominio .com por 1 año, hosting por 1 año, certificado SSL, y 3 revisiones de diseño. Tiempo de entrega: 1-2 semanas.'
+        },
+        'web-app': {
+            title: 'Aplicaciones Web Personalizadas',
+            icon: 'ri-smartphone-line',
+            description: 'Sistemas web avanzados para automatizar procesos de tu negocio',
+            price: 'Desde $850.000 COP',
+            priceNote: 'Precio varía según complejidad y funcionalidades',
+            features: [
+                {
+                    title: 'Sistema de Citas Online',
+                    description: '-Permite a tus clientes agendar citas 24/7 desde cualquier dispositivo'
+                },
+                {
+                    title: 'Gestión de Inventarios',
+                    description: '-Controla stock, productos y alertas de inventario bajo'
+                },
+                {
+                    title: 'Panel Administrativo',
+                    description: '-Dashboard completo para gestionar todos los aspectos de tu negocio'
+                },
+                {
+                    title: 'Reportes y Estadísticas',
+                    description: '-Análisis detallados de ventas, clientes y rendimiento del negocio'
+                },
+                {
+                    title: 'Sistema de Usuarios',
+                    description: '-Diferentes niveles de acceso para empleados y administradores'
+                },
+                {
+                    title: 'Notificaciones Automáticas',
+                    description: '-Emails y mensajes automáticos para confirmaciones y recordatorios'
+                }
+            ],
+            details: 'Desarrollo personalizado según las necesidades específicas de tu negocio. Incluye capacitación para el uso del sistema, soporte técnico por 3 meses, y hosting especializado. Tiempo de desarrollo: 3-6 semanas.'
+        },
+        'gym': {
+            title: 'Sitios Web para Gimnasios',
+            icon: 'ri-run-line',
+            description: 'Páginas web especializadas para gimnasios y centros deportivos en Medellín',
+            price: 'Desde $400.000 COP',
+            priceNote: 'Incluye funcionalidades específicas para gimnasios',
+            features: [
+                {
+                    title: 'Sistema de Reservas de Clases',
+                    description: '-Los miembros pueden reservar clases grupales desde la web'
+                },
+                {
+                    title: 'Horarios Dinámicos',
+                    description: '-Actualiza horarios de clases y actividades fácilmente'
+                },
+                {
+                    title: 'Perfiles de Entrenadores',
+                    description: '-Presenta a tu equipo con biografías y especialidades'
+                },
+                {
+                    title: 'Calculadora de IMC',
+                    description: '-Herramienta interactiva para que los visitantes calculen su índice de masa corporal'
+                },
+                {
+                    title: 'Blog de Fitness',
+                    description: '-Sección de artículos sobre ejercicios, nutrición y consejos de salud'
+                },
+                {
+                    title: 'Galería de Instalaciones',
+                    description: '-Muestra tus equipos, espacios y ambiente del gimnasio'
+                },
+                {
+                    title: 'Planes de Membresía',
+                    description: '-Presenta tus diferentes planes con precios y beneficios'
+                }
+            ],
+            details: 'Diseño moderno y motivacional, integración con redes sociales fitness, formulario de consulta para nuevos miembros, y sección de testimonios. Incluye dominio, hosting y certificado SSL. Tiempo de entrega: 2-3 semanas.'
+        },
+        'beauty': {
+            title: 'Sitios Web para Salones de Belleza',
+            icon: 'ri-scissors-line',
+            description: 'Páginas web elegantes para salones de belleza y spa en Medellín',
+            price: 'Desde $350.000 COP',
+            priceNote: 'Diseño premium para salones de belleza',
+            features: [
+                {
+                    title: 'Galería de Trabajos',
+                    description: '-Portafolio visual de cortes, peinados y tratamientos realizados'
+                },
+                {
+                    title: 'Sistema de Citas Online',
+                    description: '-Agenda digital para que clientes reserven servicios fácilmente'
+                },
+                {
+                    title: 'Catálogo de Servicios',
+                    description: '-Lista completa de servicios con precios y descripciones'
+                },
+                {
+                    title: 'Perfiles de Estilistas',
+                    description: '-Presenta a tu equipo con sus especialidades y experiencia'
+                },
+                {
+                    title: 'Blog de Tendencias',
+                    description: '-Artículos sobre últimas tendencias en belleza y cuidado personal'
+                },
+                {
+                    title: 'Antes y Después',
+                    description: '-Sección especial mostrando transformaciones de clientes'
+                }
+            ],
+            details: 'Diseño sofisticado y femenino, paleta de colores elegante, integración con Instagram para mostrar trabajos recientes, formulario de contacto personalizado y sección de reseñas de clientes. Tiempo de entrega: 2-3 semanas.'
+        },
+        'restaurant': {
+            title: 'Sitios Web para Restaurantes',
+            icon: 'ri-restaurant-line',
+            description: 'Páginas web apetitosas para restaurantes y cafeterías en Medellín',
+            price: 'Desde $450.000 COP',
+            priceNote: 'Incluye menú digital y sistema de reservas',
+            features: [
+                {
+                    title: 'Menú Digital Interactivo',
+                    description: '-Menú online con fotos, precios y descripciones detalladas'
+                },
+                {
+                    title: 'Sistema de Reservas',
+                    description: '-Los clientes pueden reservar mesa directamente desde la web'
+                },
+                {
+                    title: 'Pedidos Online',
+                    description: '-Sistema para pedidos a domicilio o para recoger'
+                },
+                {
+                    title: 'Galería de Platos',
+                    description: '-Fotos profesionales de tus mejores platos y ambiente'
+                },
+                {
+                    title: 'Sistema de Reseñas',
+                    description: '-Integración con Google Reviews y formulario de comentarios'
+                },
+                {
+                    title: 'Información Nutricional',
+                    description: '-Detalles de ingredientes y opciones para dietas especiales'
+                }
+            ],
+            details: 'Diseño apetitoso con fotos de alta calidad, integración con delivery apps, horarios de atención actualizables, mapa de ubicación y contacto directo por WhatsApp. Incluye capacitación para actualizar el menú. Tiempo de entrega: 2-4 semanas.'
+        }
+    };
+
+    // Manejo del modal
+    const modal = document.getElementById('serviceModal');
+    const closeModal = document.getElementById('closeModal');
+    const modalBody = document.getElementById('modalBody');
+
+    // Agregar event listeners a todos los botones de servicio
+    document.addEventListener('DOMContentLoaded', function() {
+        const serviceButtons = document.querySelectorAll('[data-service]');
+        
+        serviceButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const serviceKey = this.getAttribute('data-service');
+                showServiceModal(serviceKey);
+            });
+        });
+    });
+
+    function showServiceModal(serviceKey) {
+        const service = serviceData[serviceKey];
+        if (!service) return;
+
+        const modalContent = `
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="${service.icon}"></i>
+                </div>
+                <h2>${service.title}</h2>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <p>${service.description}</p>
+                </div>
+                
+                <div class="price-section">
+                    <div class="price">${service.price}</div>
+                    <div class="price-note">${service.priceNote}</div>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Características Incluidas</h3>
+                    <div class="feature-list">
+                        ${service.features.map(feature => `
+                            <div class="feature-item">
+                                <h4>${feature.title}</h4>
+                                <p>${feature.description}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Detalles del Servicio</h3>
+                    <p>${service.details}</p>
+                </div>
+            </div>
+        `;
+
+        modalBody.innerHTML = modalContent;
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Cerrar modal
+    closeModal.addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+
+    // Cerrar modal al hacer click fuera
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Cerrar modal con tecla Escape
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && modal.style.display === 'block') {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Smooth scroll para anclas
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Animación de entrada para elementos
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '4';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Aplicar animación a elementos que aparecen
+    document.addEventListener('DOMContentLoaded', function() {
+        const animatedElements = document.querySelectorAll('.service-card, .service-row, .service-item');
+        
+        animatedElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    });
+
+// Añadir al final del archivo JavaScript existente
+document.addEventListener('DOMContentLoaded', function() {
+    const copyButton = document.getElementById('copyEmail');
+    const email = 'dev.andrez18@gmail.com';
+
+    copyButton.addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText(email);
+            copyButton.classList.add('copied');
+            copyButton.innerHTML = '<i class="ri-check-line"></i> ¡Copiado!';
+            
+            setTimeout(() => {
+                copyButton.classList.remove('copied');
+                copyButton.innerHTML = '<i class="ri-mail-line"></i> ' + email;
+            }, 2000);
+        } catch (err) {
+            console.error('Error al copiar:', err);
+        }
+    });
+});
+</script>
