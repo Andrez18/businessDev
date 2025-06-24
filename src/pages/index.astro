@@ -4,110 +4,95 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<header class="container">
-    <div class="content">
+    <header class="container">
+      <div class="content">
         <span class="blur"></span>
         <span class="blur"></span>
-        <h4>IMPULSA TU NEGOCIO LOCAL</h4>
-        <h1>Hola!, soy <br><span>Andrés Gómez</span> Desarrollador de sitios y aplicaciones web</h1>
-        <p>¿Tienes un gimnasio, local de belleza o tienda en Medellín y quieres tener tu propio sitio web? <br>¡Yo te ayudo! Diseños modernos, rápidos y pensados para atraer más clientes a tu negocio.</p>
-        <a href="/cotizacion"><button class="btn">Cotiza tu sitio ahora</button></a>
-    </div>
-    <div class="image">
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Desarrollador trabajando">
-    </div>
+
+        <h4 class="reveal delay-1">Impulsa tu negocio local con <strong>Lummo</strong></h4>
+        <h1 class="reveal delay-2">
+          Transforma tu idea<br>en una marca digital <span>poderosa</span>
+        </h1>
+        <p class="reveal delay-3">
+          Sitios web y apps hechos a medida para gimnasios, tiendas y emprendimientos en Medellín.<br>
+          Diseño moderno, velocidad imbatible y enfoque total en resultados reales.
+        </p>
+        <a href="/cotizacion" class="reveal delay-4"><button class="btn">Cotiza tu sitio ahora</button></a>
+      </div>
+
+      <div class="image">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80" alt="Desarrollador trabajando">
+      </div>
     </header>
 
-	<section class="container">
-        <h2 class="header">¿QUÉ TE OFREZCO?</h2>
-        <div class="feactures">
-            <div class="card">
-                <span><i class="ri-money-dollar-box-line"></i></span>
-                <h4>Sitios para negocios</h4>
-                <p>Páginas web modernas, adaptadas a celulares, con tu información, servicios y contacto directo.</p>
-            </div>
-            <div class="card">
-                <span><i class="ri-bug-line"></i></span>
-                <h4>Soporte técnico</h4>
-                <p>Te ayudo a mantener tu sitio actualizado y sin errores. Mantenimiento técnico mensual disponible.</p>
-            </div>
-            <div class="card">
-                <span><i class="ri-history-line"></i></span>
-                <h4>Diseño rápido</h4>
-                <p>Nos reunimos, diseñamos y lanzamos tu sitio sin complicaciones.</p>
-            </div>
-            <div class="card">
-                <span><i class="ri-shake-hands-line"></i></span>
-                <h4>Trabajo colaborativo</h4>
-                <p>Escucho tus ideas y me adapto a tu negocio. Juntos creamos un sitio que represente tu marca.</p>
-            </div>
-        </div>
-    </section>
 
-    <section class="container">
-        <h2 class="header">PLANES PARA TU NEGOCIO</h2>
-        <p class="sub-header">
-            Elige el plan que mejor se adapte a tus necesidades. Todos incluyen soporte y optimización para móviles.
-        </p>
-        <div class="pricing">
-            <div class="card">
-                <div class="content">
-                    <h4>Plan Básico</h4>
-                    <h3>$250.000 COP</h3>
-                    <p>
-                        <i class="ri-checkbox-circle-line"></i>
-                        Sitio web de 3 secciones
-                    </p>
-                    <p>
-                        <i class="ri-checkbox-circle-line"></i>
-                        Enlace a WhatsApp y redes
-                    </p>
-                </div>
-                <a href="/cotizacion"><button class="btn">Obtener ahora</button></a>
-            </div>
-            <div class="card">
-                <div class="content">
-                    <h4>Plan Profesional</h4>
-                    <h3>$400.000 COP</h3>
-                    <p>
-                        <i class="ri-checkbox-circle-line"></i>
-                        Hasta 5 secciones + galería
-                    </p>
-                    <p>
-                        <i class="ri-checkbox-circle-line"></i>
-                        Hosting por 1 año
-                    </p>
-                    <p>
-                        <i class="ri-checkbox-circle-line"></i>
-                        Formulario de contacto + mapa</p>
-                </div>
-                <a href="/cotizacion"><button class="btn">Obtener ahora</button></a>
-            </div>
-            <div class="card">
-                <div class="content">
-                    <h4>Plan Premium</h4>
-                    <h3>$600.000 COP</h3>
-                    <p>
-                        <i class="ri-checkbox-circle-line"></i>
-                        Todo lo del plan Profesional
-                    </p>
-                    <p>
-                        <i class="ri-checkbox-circle-line"></i>
-                        Blog, SEO inicial y mantenimiento
-                    </p>
-                    <p>
-                        <i class="ri-checkbox-circle-line"></i>
-                        Soporte mensual incluido
-                    </p>
-                    <p>
-                        <i class="ri-checkbox-circle-line"></i>
-                        Dominio por 1 año
-                    </p>
-                </div>
-                <a href="/cotizacion"><button class="btn">Obtener ahora</button></a>
-            </div>
-        </div>
-    </section>
+<section class="container reveal delay-1">
+  <h2 class="header">¿QUÉ HACE LUMMO DIFERENTE?</h2>
+  <div class="feactures">
+    <div class="card reveal delay-2">
+      <span><i class="ri-window-line"></i></span>
+      <h4>Diseño que impacta</h4>
+      <p>No solo creamos páginas: diseñamos primeras impresiones inolvidables que conectan al instante.</p>
+    </div>
+    <div class="card reveal delay-3">
+      <span><i class="ri-smartphone-line"></i></span>
+      <h4>Siempre a la mano</h4>
+      <p>Más del 80% de los usuarios visitan desde su celular. Cada diseño está adaptado para móviles.</p>
+    </div>
+    <div class="card reveal delay-4">
+      <span><i class="ri-flashlight-line"></i></span>
+      <h4>Lanzamiento exprés</h4>
+      <p>Ideas claras, procesos ágiles y entregas rápidas. Listo para destacar desde el día uno.</p>
+    </div>
+    <div class="card reveal delay-4">
+      <span><i class="ri-map-pin-line"></i></span>
+      <h4>Enfocados en tu zona</h4>
+      <p>Conocemos Medellín y a tus clientes. Lummo es tu aliado local para posicionarte en lo digital.</p>
+    </div>
+  </div>
+</section>
+
+<section class="container reveal delay-2">
+  <h2 class="header">PLANES QUE SE ADAPTAN A TU CRECIMIENTO</h2>
+  <p class="sub-header">
+    Desde lo esencial hasta lo extraordinario. Escoge el plan que impulse tu negocio sin complicaciones.
+  </p>
+  <div class="pricing">
+    <div class="card reveal delay-3">
+      <div class="content">
+        <h4>Plan Esencial</h4>
+        <h3>$250.000 COP</h3>
+        <p><i class="ri-checkbox-circle-line"></i> 3 secciones clave</p>
+        <p><i class="ri-checkbox-circle-line"></i> WhatsApp + redes</p>
+        <p><i class="ri-checkbox-circle-line"></i> Optimización móvil</p>
+      </div>
+      <a href="/cotizacion"><button class="btn">Comenzar</button></a>
+    </div>
+
+    <div class="card reveal delay-4">
+      <div class="content">
+        <h4>Plan Emprendedor</h4>
+        <h3>$400.000 COP</h3>
+        <p><i class="ri-checkbox-circle-line"></i> Hasta 5 secciones</p>
+        <p><i class="ri-checkbox-circle-line"></i> Galería + mapa</p>
+        <p><i class="ri-checkbox-circle-line"></i> Hosting 1 año incluido</p>
+      </div>
+      <a href="/cotizacion"><button class="btn">Lo quiero</button></a>
+    </div>
+
+    <div class="card reveal delay-4">
+      <div class="content">
+        <h4>Plan Evolución</h4>
+        <h3>$600.000 COP</h3>
+        <p><i class="ri-checkbox-circle-line"></i> Todo lo anterior</p>
+        <p><i class="ri-checkbox-circle-line"></i> Blog + SEO básico</p>
+        <p><i class="ri-checkbox-circle-line"></i> Dominio y soporte mensual</p>
+      </div>
+      <a href="/cotizacion"><button class="btn">Escalar ahora</button></a>
+    </div>
+  </div>
+</section>
+
 </Layout>
 
 <style>
@@ -120,6 +105,27 @@ import Layout from '../layouts/Layout.astro';
     border: none;
     box-sizing: border-box;
 }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
 
 .btn{
     padding: 1rem 2rem;
@@ -472,3 +478,17 @@ footer .column > a:hover{
     }
 }
 </style>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    window.addEventListener('scroll', () => {
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        const revealPoint = 100;
+        if (elementTop < windowHeight - revealPoint) {
+          reveals[i].classList.add('active');
+        }
+      }
+    });
+  </script>
