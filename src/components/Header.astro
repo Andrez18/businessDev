@@ -6,7 +6,8 @@
         </div>
 
         <ul class="nav-links">
-            <li class="link"><a href="/">Home</a></li>
+            <li class="link"><a href="/">Inicio</a></li>
+            <!-- <li class="link"><a href="/productos">Productos</a></li> -->
             <li class="link"><a href="/proyectos">Proyectos</a></li>
             <li class="link"><a href="/services">Servicios</a></li>
         </ul>
@@ -15,7 +16,7 @@
 
         <!-- Botón del menú hamburguesa -->
         <button class="nav-toggle" id="nav-toggle">
-            <i class="ri-menu-line"></i>
+          <i class="ri-menu-line"></i>
         </button>
     </nav>
 
@@ -26,7 +27,8 @@
                 <i class="ri-close-line"></i>
             </button>
             <ul class="mobile-nav-links">
-                <li><a href="/" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="/" onclick="closeMobileMenu()">Inicio</a></li>
+                <!-- <li><a href="/productos" onclick="closeMobileMenu()">Productos</a></li> -->
                 <li><a href="/proyectos" onclick="closeMobileMenu()">Proyectos</a></li>
                 <li><a href="/services" onclick="closeMobileMenu()">Servicios</a></li>
             </ul>
@@ -34,45 +36,48 @@
         </div>
     </div>
 
-    <script>
-        const navToggle = document.getElementById('nav-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuClose = document.getElementById('mobile-menu-close');
+<script>
+  const navToggle = document.getElementById('nav-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuClose = document.getElementById('mobile-menu-close');
 
-        function openMobileMenu() {
-            mobileMenu.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+  function openMobileMenu() {
+      mobileMenu.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      navToggle.classList.add('hide'); // Oculta el botón hamburguesa
+  }
 
-        function closeMobileMenu() {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
+  function closeMobileMenu() {
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = 'auto';
+      navToggle.classList.remove('hide'); // Muestra el botón hamburguesa
+  }
 
-        navToggle.addEventListener('click', openMobileMenu);
-        mobileMenuClose.addEventListener('click', closeMobileMenu);
+  navToggle.addEventListener('click', openMobileMenu);
+  mobileMenuClose.addEventListener('click', closeMobileMenu);
 
-        // Cerrar menú al hacer click fuera
-        mobileMenu.addEventListener('click', function(e) {
-            if (e.target === mobileMenu) {
-                closeMobileMenu();
-            }
-        });
+  // Cerrar menú al hacer click fuera
+  mobileMenu.addEventListener('click', function(e) {
+      if (e.target === mobileMenu) {
+          closeMobileMenu();
+      }
+  });
 
-        // Cerrar menú con tecla ESC
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-                closeMobileMenu();
-            }
-        });
+  // Cerrar menú con tecla ESC
+  document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+          closeMobileMenu();
+      }
+  });
 
-        // Manejar redimensionamiento de ventana
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
-                closeMobileMenu();
-            }
-        });
-    </script>
+  // Cerrar menú si cambia a vista de escritorio
+  window.addEventListener('resize', function() {
+      if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+          closeMobileMenu();
+      }
+  });
+</script>
+
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap');
@@ -101,7 +106,7 @@ body {
 nav {
     max-width: 1200px;
     margin: auto;
-    padding: 2rem 1rem;
+    padding: 0rem 0rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -149,24 +154,24 @@ nav {
 }
 
 .btn {
-    padding: 1rem 2rem;
+    padding: 0.5rem 1rem;
     font-size: 1rem;
     color: #f4f4f4;
-    background-color: #1d4ed8;
+    background-color: transparent;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
-    border: none;
+    border: 1px solid #f4f4f4;
     font-family: inherit;
     font-weight: 500;
 }
 
 .btn:hover {
     background-color: #1e40af;
-    transform: translateY(-2px);
+    border: none;
+    scale: 1.05;
 }
 
-/* Botón hamburguesa */
 .nav-toggle {
     display: none;
     background: none;
@@ -184,6 +189,11 @@ nav {
     color: #1d4ed8;
     background-color: rgba(29, 78, 216, 0.1);
 }
+
+.hide {
+  display: none !important;
+}
+
 
 /* Menú móvil */
 .mobile-menu {
