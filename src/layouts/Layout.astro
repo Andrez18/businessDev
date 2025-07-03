@@ -1,33 +1,42 @@
----
-import Header from "../components/Header.astro"
-import Footer from "../components/Footer.astro"
----
-
-
 <!doctype html>
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-   		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css">
-    	<link rel="shortcut icon" href="logo.png" type="image/x-icon">
-		<title>Lumoo | Soluciones personalizadas a cada cliente</title>
+    	<title>Lummmoo</title>
+		<meta name="description" content="Lummoo es una startup que te ayuda a llevar tu marca al mundo digital, creando sitios web y aplicaciones personalizadas para tu negocio." />
+		<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
 	</head>
 	<body>
-		<Header />
 		<slot />
-		<Footer />
 	</body>
 </html>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    --background-dark: #000000;
+	--background-claro: #ffffff;
+	--background-gris: #101012;
+	--background-gris-oscuro: #17171a;
+    --color-titles: #e4e2e5;
+    --color-text: #ffffff;
+    --color-links: #738088;
+}
+	html{
+		scroll-behavior: smooth;
+	}
 	html,
 	body {
-		padding: 0;
+		color: var(--color-text);
+		background: var(--background-dark);
 		margin: 0;
-    	outline: none;
-    	border: none;
-    	box-sizing: border-box;
+		width: 100%;
+		height: 100%;
 	}
+
+
 </style>

@@ -1,0 +1,149 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <a href="/" class="volver">Volver</a>
+  <section class="terms">
+    <div class="container">
+      <h1>Términos y Condiciones</h1>
+      <p><strong>Última actualización:</strong> 1 de julio de 2025</p>
+
+      <p>
+        Bienvenido al sitio web de <strong>Lummoo</strong>. Al acceder y utilizar nuestro sitio web (<em>www.lummoo.com</em>) y/o nuestros servicios digitales, aceptas quedar sujeto a estos Términos y Condiciones. Si no estás de acuerdo con alguna parte de estos términos, te recomendamos no continuar con el uso del sitio.
+      </p>
+
+      <h2>1. Uso del Sitio</h2>
+      <p>
+        Este sitio tiene como objetivo ofrecer información sobre nuestros servicios de desarrollo web y aplicaciones digitales. Estás autorizado a navegar y utilizar este sitio solo para fines personales o informativos. Está prohibido el uso indebido del sitio, incluyendo pero no limitado a:
+      </p>
+      <ul>
+        <li>Realizar actividades ilegales o no autorizadas.</li>
+        <li>Copiar, distribuir o reproducir contenido sin autorización.</li>
+        <li>Intentar acceder a servidores o información restringida.</li>
+      </ul>
+
+      <h2>2. Propiedad Intelectual</h2>
+      <p>
+        Todo el contenido de este sitio web, incluyendo textos, gráficos, logotipos, íconos, imágenes, código fuente y diseños, es propiedad de <strong>Lummoo</strong> o se utiliza con licencia. Queda prohibido su uso sin previa autorización por escrito.
+      </p>
+
+      <h2>3. Servicios Ofrecidos</h2>
+      <p>
+        Lummoo ofrece servicios de desarrollo de sitios web, aplicaciones web y otros productos digitales. Todos los servicios están sujetos a acuerdos separados (como cotizaciones o contratos individuales). Nos reservamos el derecho de rechazar solicitudes que no estén alineadas con nuestros principios o capacidades técnicas.
+      </p>
+
+      <h2>4. Enlaces a Terceros</h2>
+      <p>
+        Este sitio puede contener enlaces a otros sitios web. <strong>Lummoo</strong> no se responsabiliza por el contenido, políticas o prácticas de terceros. El uso de esos enlaces es bajo tu propio riesgo.
+      </p>
+
+      <h2>5. Exclusión de Garantías</h2>
+      <p>
+        El contenido del sitio se proporciona “tal cual”. Aunque hacemos esfuerzos razonables por mantener la información actualizada, no garantizamos que sea siempre precisa, completa o libre de errores. Lummoo no se hace responsable por pérdidas o daños derivados del uso del sitio.
+      </p>
+
+      <h2>6. Limitación de Responsabilidad</h2>
+      <p>
+        En ningún caso Lummoo será responsable por daños directos, indirectos, incidentales o consecuentes derivados del uso o la imposibilidad de uso del sitio o sus servicios, incluso si se nos ha informado de la posibilidad de dichos daños.
+      </p>
+
+      <h2>7. Política de Privacidad</h2>
+      <p>
+        Al utilizar este sitio, también aceptas nuestra <a href="/privacidad" class="link">Política de Privacidad</a>, la cual describe cómo recopilamos y manejamos tus datos personales.
+      </p>
+
+      <h2>8. Modificaciones</h2>
+      <p>
+        Nos reservamos el derecho a modificar estos Términos y Condiciones en cualquier momento y sin previo aviso. Los cambios entrarán en vigor desde su publicación en esta página. Te recomendamos revisar esta sección periódicamente.
+      </p>
+
+      <h2>9. Legislación Aplicable</h2>
+      <p>
+        Estos términos se rigen por las leyes de la República de Colombia. Cualquier controversia se resolverá ante los tribunales competentes del país.
+      </p>
+
+      <h2>📩 Contacto</h2>
+      <p>
+        Si tienes preguntas sobre estos Términos y Condiciones, puedes escribirnos a:
+      </p>
+      <p><strong>lummoosoftware@gmail.com</strong></p>
+    </div>
+  </section>
+
+  <style>
+    .volver {
+      display: inline-block;
+      margin: 1rem;
+      padding: 0.5rem 1rem;
+      background: transparent;
+      color: #fff;
+      text-decoration: none;
+      border: 1px solid #ffffff;
+      border-radius: 24px;
+    }
+
+    .volver:hover {
+      box-shadow: 0 0 12px 4px rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    .terms {
+      background-color: #000;
+      color: #fff;
+      padding: 2rem 1.5rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #ffffff22;
+      padding-bottom: 0.4rem;
+    }
+
+    h2 {
+      margin-top: 2rem;
+      font-size: 1.5rem;
+      border-bottom: 1px solid #ffffff22;
+      padding-bottom: 0.3rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+      list-style-type: disc;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    a.link {
+      color: #4ea8de;
+      text-decoration: underline;
+    }
+
+    a.link:hover {
+      color: #7cc5f9;
+    }
+
+    strong {
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      .terms {
+        padding: 1.5rem 1rem;
+      }
+    }
+  </style>
+</Layout>

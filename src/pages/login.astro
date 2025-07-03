@@ -1,0 +1,262 @@
+---
+import Layout from "../layouts/Layout.astro"
+---
+
+<Layout title="Iniciar sesión">
+<section>
+    <a href="/" class="back-button">Regresar</a>
+    
+    <div class="container">
+        <div class="logo">
+            <img src="/logo-dark-mode.png" alt="Logo de Lummo" class="logo-inner">
+        </div>
+        
+        <div class="welcome-text">
+            <h1>Eyyy, Bienvenido de vuelta!</h1>
+            <p>¿Primera vez aquí? <a href="/signup">Registrate gratis</a></p>
+        </div>
+        
+        <form class="form-container" id="loginForm">
+            <div class="input-group">
+                <label for="email">Ingresa tu correo:</label>
+                <input type="email" id="email" name="email" placeholder="ejemplo@gmail.com" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="password" id="password" name="password" placeholder="••••••••" required>
+            </div>
+            
+            <button type="submit" class="sign-in-button">Iniciar Sesión</button>
+        </form>
+        
+        <div class="footer">
+            <p>Usted reconoce que ha leído y acepta nuestras politicas de privacidad.</p>
+            <p><a href="/privacy">Política de privacidad</a></p>
+        </div>
+    </div>
+</section>
+</Layout>
+
+<style>
+* {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+      section {
+          font-family: -'DM Sans', sans-serif;
+          background: linear-gradient(135deg, #1a1a1a 0%, #000000 50%, #131313 100%);
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 20px;
+          color: white;
+      }
+      .back-button {
+          position: absolute;
+          top: 24px;
+          left: 32px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          color: rgba(255, 255, 255, 0.8);
+          text-decoration: none;
+          font-size: 20px;
+          transition: color 0.2s ease;
+      }
+      .back-button:hover {
+          color: white;
+      }
+      .back-button::before {
+          content: "<";
+          font-size: 18px;
+      }
+      .container {
+          width: 100%;
+          max-width: 400px;
+          text-align: center;
+      }
+      .logo {
+          width: 64px;
+          height: 64px;
+          margin: 0 auto 32px;
+          border-radius: 24px;
+          background: linear-gradient(to bottom, var(--background-dark), #28282b);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+      }
+      .logo-inner {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+      .logo-inner::before {
+          content: "";
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          background: radial-gradient(circle at 30% 30%, #666, #333);
+          border: 1px solid #555;
+      }
+      .welcome-text {
+          margin-bottom: 32px;
+      }
+      .welcome-text h1 {
+          font-size: 34px;
+          font-weight: 600;
+          margin-bottom: 8px;
+          color: white;
+      }
+      .welcome-text p {
+          font-size: 16px;
+          color: #999;
+      }
+      .welcome-text a {
+          color: white;
+          text-decoration: none;
+      }
+      .welcome-text a:hover {
+          text-decoration: underline;
+      }
+      .form-container {
+          margin-bottom: 24px;
+      }
+      .input-group {
+          margin-bottom: 20px;
+          text-align: left;
+      }
+      .input-group label {
+          display: block;
+          font-size: 14px;
+          color: #999;
+          margin-bottom: 8px;
+      }
+      .input-group input {
+          width: 100%;
+          padding: 12px 16px;
+          background: transparent;
+          border: 1px solid #555;
+          border-radius: 8px;
+          color: white;
+          font-size: 14px;
+          transition: border-color 0.2s ease;
+      }
+      .input-group input:focus {
+          outline: none;
+          border-color: #777;
+      }
+      .input-group input::placeholder {
+          color: #666;
+      }
+      .sign-in-button {
+          width: 100%;
+          padding: 12px;
+          background: white;
+          color: black;
+          border: none;
+          border-radius: 8px;
+          font-size: 14px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: background-color 0.2s ease;
+          margin-bottom: 16px;
+      }
+      .sign-in-button:hover {
+          background: #f0f0f0;
+      }
+      .magic-link {
+          font-size: 14px;
+          color: #999;
+          text-decoration: none;
+          margin-bottom: 24px;
+          display: block;
+      }
+      .magic-link:hover {
+          color: white;
+      }
+      .divider {
+          position: relative;
+          margin: 24px 0;
+      }
+      .divider::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 0;
+          right: 0;
+          height: 1px;
+          background: #555;
+      }
+      .divider span {
+          background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+          padding: 0 12px;
+          color: #999;
+          font-size: 14px;
+          position: relative;
+      }
+      .sso-link {
+          font-size: 14px;
+          color: #999;
+          text-decoration: none;
+          margin-bottom: 32px;
+          display: block;
+      }
+      .sso-link:hover {
+          color: white;
+      }
+      .footer {
+          font-size: 12px;
+          color: #666;
+          line-height: 1.4;
+      }
+      .footer a {
+          color: #666;
+          text-decoration: underline;
+      }
+      .footer a:hover {
+          color: #999;
+      }
+      @media (max-width: 480px) {
+          .container {
+              max-width: 320px;
+          }
+          
+          .welcome-text h1 {
+              font-size: 20px;
+          }
+      }
+</style>
+
+<script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (email && password) {
+                // Aquí puedes agregar la lógica de autenticación
+                console.log('Login attempt:', { email, password });
+                alert('Login functionality would be implemented here');
+            }
+        });
+
+        // Agregar efecto de focus a los inputs
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        });
+    </script>

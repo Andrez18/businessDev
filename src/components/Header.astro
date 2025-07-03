@@ -1,365 +1,619 @@
-    <nav>
-        <div class="nav-logo">
-            <a href="/">
-                <img src="logo.png" alt="Logo">
-            </a>
+---
+// Header.astro
+---
+
+<header>
+<nav>
+    <div class="logo">
+        <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="none" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <circle cx="256" cy="256" r="160" fill="white"/>
+          <circle cx="352" cy="256" r="96" fill="black"/>
+          <circle cx="352" cy="256" r="56" fill="white"/>
+        </svg>
+
+        <a href="/">Lummoo</a>
+    </div>
+    
+    <ul class="nav-links">
+    <li><a href="#" id="open-projects">Proyectos</a></li>
+    <li><a href="#Services">Servicios</a></li>
+    <li><a href="#us">Conócenos</a></li>
+    </ul>
+    <a href="/login" class="login-btn" id="login-btn">Iniciar sesión</a>
+</nav>
+</header>
+
+<div id="projects-modal" class="modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-content scrollable" id="modal-content">
+    <div class="modal-header">
+      <span class="close-modal">&times;</span>
+    </div>
+
+    <div class="modal-body">
+      <div class="hero-section">
+        <div class="hero-container">
+          <div class="hero-content">
+            <span class="hero-title">Nuestros proyectos</span>
+          </div>
+          <div class="background-pattern"></div>
         </div>
+      </div>
 
-        <ul class="nav-links">
-            <li class="link"><a href="/">Inicio</a></li>
-            <!-- <li class="link"><a href="/productos">Productos</a></li> -->
-            <li class="link"><a href="/proyectos">Proyectos</a></li>
-            <li class="link"><a href="/services">Servicios</a></li>
-        </ul>
+      <div class="section-divider">
+        <span class="section-title">Aplicaciones Web</span>
+      </div>
 
-        <a href="/cotizacion"><button class="btn">¡Contactar Ahora!</button></a>
-
-        <!-- Botón del menú hamburguesa -->
-        <button class="nav-toggle" id="nav-toggle">
-          <i class="ri-menu-line"></i>
-        </button>
-    </nav>
-
-    <!-- Menú móvil -->
-    <div class="mobile-menu" id="mobile-menu">
-        <div class="mobile-menu-content">
-            <button class="mobile-menu-close" id="mobile-menu-close">
-                <i class="ri-close-line"></i>
+      <div class="project-card">
+        <div class="project-image">
+          <div class="placeholder-image">
+            <span class="material-icons"><img src="/img-agendaslummoo.png" alt="Imagen de AgendaLummo"></span>
+          </div>
+        </div>
+        <div class="project-info">
+          <span class="project-title">AgendasLummoo</span>
+          <p class="project-description">
+            AgendaLummoo es una aplicación web para la gestión de citas para locales como barberias, locales de belleza y clinicas.
+          </p>
+          <div class="project-link">
+            <button class="project-btn" data-url="https://agendaslummo.vercel.app">
+              Ir al proyecto <span class="material-icons">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                  <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/>
+                </svg>
+              </span>
             </button>
-            <ul class="mobile-nav-links">
-                <li><a href="/" onclick="closeMobileMenu()">Inicio</a></li>
-                <!-- <li><a href="/productos" onclick="closeMobileMenu()">Productos</a></li> -->
-                <li><a href="/proyectos" onclick="closeMobileMenu()">Proyectos</a></li>
-                <li><a href="/services" onclick="closeMobileMenu()">Servicios</a></li>
-            </ul>
-            <a href="/cotizacion"><button class="btn mobile-btn" onclick="closeMobileMenu()">¡Contactar Ahora!</button></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider">
+        <span class="section-title">Sitios web</span>
+      </div>
+
+      <div class="project-card">
+        <span class="project-title">
+          Haz que el primer proyecto público de Lummoo sea tu sitio web
+        </span>
+      </div>
+
+      <!-- <div class="project-card">
+        <div class="project-image">
+          <div class="placeholder-image">
+            <span class="material-icons">web</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <span class="project-title">Eros</span>
+          <p class="project-description">
+            Empresa de desarrollo web y marketing digital. Ofrecen servicios de diseño web, desarrollo de aplicaciones, SEO, SEM, redes sociales y más.
+          </p>
+          <div class="project-link">
+            <button class="project-btn" data-url="https://erosdev.com">
+              Ir al proyecto <span class="material-icons">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                  <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <div class="placeholder-image">
+            <span class="material-icons">festival</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <span class="project-title">Earthbound</span>
+          <p class="project-description">
+            Earthbound es un festival que fusiona fitness, música en vivo, misticismo y gastronomía gourmet. Una celebración donde el ejercicio, la música y la comida se unen para mejorar tu vitalidad y bienestar.
+          </p>
+          <div class="project-link">
+            <button class="project-btn" data-url="https://earthboundfest.com/">
+              Ir al proyecto <span class="material-icons">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                  <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="cta-section">
+        <div class="cta-container">
+          <div class="cta-content">
+            <span class="cta-title">¿Encuentras interesante nuestro trabajo?</span>
+            <button class="cta-btn" id="contact-btn">
+              <span class="material-icons">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                  <path d="M880-80 720-240H320q-33 0-56.5-23.5T240-320v-40h440q33 0 56.5-23.5T760-440v-280h40q33 0 56.5 23.5T880-640v560ZM160-473l47-47h393v-280H160v327ZM80-280v-520q0-33 23.5-56.5T160-880h440q33 0 56.5 23.5T680-800v280q0 33-23.5 56.5T600-440H240L80-280Zm80-240v-280 280Z"/>
+                </svg>
+              </span>Contáctanos
+            </button>
+          </div>
+          <div class="background-pattern"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div id="custom-alert" class="custom-alert">
+        <div class="custom-alert-content">
+            <div class="custom-alert-icon">⚠️</div>
+            <div class="custom-alert-title">Información</div>
+            <div class="custom-alert-message" id="alert-message"></div>
+            <button class="custom-alert-button" id="alert-button">Entendido</button>
         </div>
     </div>
 
-<script>
-  const navToggle = document.getElementById('nav-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const mobileMenuClose = document.getElementById('mobile-menu-close');
-
-  function openMobileMenu() {
-      mobileMenu.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      navToggle.classList.add('hide'); // Oculta el botón hamburguesa
-  }
-
-  function closeMobileMenu() {
-      mobileMenu.classList.remove('active');
-      document.body.style.overflow = 'auto';
-      navToggle.classList.remove('hide'); // Muestra el botón hamburguesa
-  }
-
-  navToggle.addEventListener('click', openMobileMenu);
-  mobileMenuClose.addEventListener('click', closeMobileMenu);
-
-  // Cerrar menú al hacer click fuera
-  mobileMenu.addEventListener('click', function(e) {
-      if (e.target === mobileMenu) {
-          closeMobileMenu();
-      }
-  });
-
-  // Cerrar menú con tecla ESC
-  document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-          closeMobileMenu();
-      }
-  });
-
-  // Cerrar menú si cambia a vista de escritorio
-  window.addEventListener('resize', function() {
-      if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
-          closeMobileMenu();
-      }
-  });
-</script>
-
-
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        header {
+            font-family: 'DM Sans', sans-serif;
+            margin: 1.5rem 0;
+            width: calc(100% - 24px);
+            margin: 3rem 0;
+        }
 
-img {
-    width: 100%;
-    display: flex;
-}
+        header nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5rem;
+            width: 100%;
+        }
 
-a {
-    text-decoration: none;
-}
+        header.scrolled {
+            background: rgba(17, 17, 20, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #18181b;
-    color: #f4f4f4;
-}
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
 
-nav {
-    max-width: 1200px;
-    margin: auto;
-    padding: 0rem 0rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    position: relative;
-}
+        .logo svg {
+            width: 40px;
+            height: 40px;
+        }
 
-.nav-logo {
-    max-width: 100px;
-    z-index: 1000;
-}
+        .logo a {
+            font-family: 'Monserrate', sans-serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--color-titles);
+            text-decoration: none;
+        }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-}
+        .logo:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
 
-.link a {
-    position: relative;
-    padding-bottom: 0.75rem;
-    color: #f4f4f4;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            list-style: none;
+            gap: 2rem;
+        }
 
-.link a::after {
-    content: "";
-    position: absolute;
-    height: 2px;
-    width: 0;
-    bottom: 0;
-    left: 0;
-    background-color: #1d4ed8;
-    transition: all 0.3s ease;
-}
+        .nav-links a {
+            color: var(--color-links);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0.75rem;
+            border-radius: 20px;
+        }
 
-.link a:hover::after {
-    width: 70%;
-}
+        .nav-links a:hover {
+            color: #fafafa;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
 
-.link a:hover {
-    color: #1d4ed8;
-}
+        .login-btn {
+            color: var(--color-links);
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--color-links);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
 
-.btn {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    color: #f4f4f4;
-    background-color: transparent;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 1px solid #f4f4f4;
-    font-family: inherit;
-    font-weight: 500;
-}
+        .login-btn:hover {
+            color: #fafafa;
+            border: 1px solid #fafafa;
+        }
 
-.btn:hover {
-    background-color: #1e40af;
-    border: none;
-    scale: 1.05;
-}
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
 
-.nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: #f4f4f4;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    z-index: 1000;
-}
+        .modal-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 30px 30px;
+            pointer-events: none;
+        }
 
-.nav-toggle:hover {
-    color: #1d4ed8;
-    background-color: rgba(29, 78, 216, 0.1);
-}
+        .modal-content.scrollable {
+            position: relative;
+            background: var(--background-dark);
+            color: #fff;
+            border-radius: 2rem;
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            max-width: 1000px;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
 
-.hide {
-  display: none !important;
-}
+        .modal-header {
+            position: sticky;
+            top: 0;
+            background: var(--background-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            z-index: 9;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
+        .close-modal {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50px;
+            transition: background 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-/* Menú móvil */
-.mobile-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-}
+        .close-modal:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
 
-.mobile-menu.active {
-    opacity: 1;
-    visibility: visible;
-}
+        .modal-body {
+            padding: 0 2rem 2rem;
+        }
 
-.mobile-menu-content {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 100%;
-    background-color: #27272a;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-}
+        .hero-section {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
 
-.mobile-menu.active .mobile-menu-content {
-    transform: translateX(0);
-}
+        .hero-container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 1rem;
+        }
 
-.mobile-menu-close {
-    align-self: flex-end;
-    background: none;
-    border: none;
-    color: #f4f4f4;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    margin-bottom: 2rem;
-}
+        .hero-content {
+            display: flex;
+            flex-grow: 1;
+            justify-content: center;
+            padding: 4rem 2rem;
+            z-index: 1;
+            position: relative;
+        }
 
-.mobile-menu-close:hover {
-    color: #1d4ed8;
-    background-color: rgba(29, 78, 216, 0.1);
-}
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-align: center;
+            user-select: none;
+            line-height: 1;
+            font-family: 'DM Sans', sans-serif;
+        }
 
-.mobile-nav-links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-    flex: 1;
-}
+        .background-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 30px 30px;
+            pointer-events: none;
+        }
 
-.mobile-nav-links a {
-    color: #f4f4f4;
-    font-size: 1.1rem;
-    font-weight: 500;
-    padding: 1rem 0;
-    border-bottom: 1px solid #3a3a3a;
-    transition: all 0.3s ease;
-    display: block;
-}
+        .custom-alert {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
 
-.mobile-nav-links a:hover {
-    color: #1d4ed8;
-    padding-left: 1rem;
-}
+        .custom-alert.show {
+            opacity: 1;
+            visibility: visible;
+        }
 
-.mobile-btn {
-    width: 100%;
-    margin-top: auto;
-}
+        .custom-alert-content {
+            background: var(--background-dark, #1b1b1f);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
 
-/* Media Queries */
-@media (max-width: 768px) {
-    nav {
-        padding: 1.5rem 1rem;
-    }
-    
-    .nav-links,
-    .btn {
-        display: none;
-    }
-    
-    .nav-toggle {
-        display: block;
-    }
-    
-    .mobile-menu-content {
-        width: 280px;
-    }
-}
+        .custom-alert.show .custom-alert-content {
+            transform: scale(1);
+            animation: alertSlideIn 0.3s ease forwards;
+        }
 
-@media (max-width: 480px) {
-    nav {
-        padding: 1rem;
-    }
-    
-    .nav-logo {
-        max-width: 80px;
-    }
-    
-    .mobile-menu-content {
-        width: 100%;
-        padding: 1.5rem;
-    }
-}
+        .custom-alert-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
 
-/* Animaciones adicionales */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        .custom-alert-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            font-family: 'DM Sans', sans-serif;
+        }
 
-.mobile-nav-links li {
-    animation: fadeInUp 0.3s ease forwards;
-    opacity: 0;
-}
+        .custom-alert-message {
+            font-size: 1rem;
+            color: #d1d5db;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
 
-.mobile-menu.active .mobile-nav-links li:nth-child(1) {
-    animation-delay: 0.1s;
-}
+        .custom-alert-button {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            border: none;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
 
-.mobile-menu.active .mobile-nav-links li:nth-child(2) {
-    animation-delay: 0.2s;
-}
+        .custom-alert-button:hover {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+        }
 
-.mobile-menu.active .mobile-nav-links li:nth-child(3) {
-    animation-delay: 0.3s;
-}
+        @keyframes alertSlideIn {
+            from {
+                transform: translateY(-20px) scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
 
-.mobile-menu.active .mobile-btn {
-    animation: fadeInUp 0.3s ease 0.4s forwards;
-    opacity: 0;
-}
+        .section-divider {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
 
-/* Estados de focus para accesibilidad */
-.nav-toggle:focus,
-.mobile-menu-close:focus,
-.link a:focus,
-.btn:focus {
-    outline: 2px solid #1d4ed8;
-    outline-offset: 2px;
-}
+        .section-title {
+            font-family: 'DM Sans', sans-serif;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #94a3b8;
+            position: relative;
+        }
 
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
-}
+        .project-card {
+            display: flex;
+            background-color: #1b1b1f;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            flex-wrap: wrap;
+            user-select: none;
+        }
+
+        .project-title {
+            font-size: 2rem;
+            font-weight: 500;
+            color: #a5b4fc;
+            line-height: 1;
+            font-family: 'DM Sans', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-description {
+            color: #d1d5db;
+            font-size: 1.25rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .project-btn {
+            background: none;
+            border: 1px solid #64748b;
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .project-btn:hover {
+            border-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        @media only screen and (max-width: 768px) {
+            header nav {
+                padding: 1rem;
+                justify-content: space-between;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
 </style>
+
+<script>
+        // Función para mostrar alerta personalizada
+        function showCustomAlert(message, title = 'Información') {
+            const alertElement = document.getElementById('custom-alert');
+            const messageElement = document.getElementById('alert-message');
+            const titleElement = document.querySelector('.custom-alert-title');
+            
+            titleElement.textContent = title;
+            messageElement.textContent = message;
+            
+            alertElement.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Función para cerrar alerta personalizada
+        function hideCustomAlert() {
+            const alertElement = document.getElementById('custom-alert');
+            alertElement.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById("projects-modal");
+            const modalContent = document.getElementById("modal-content");
+            const openBtn = document.getElementById("open-projects");
+            const closeBtn = document.querySelector(".close-modal");
+            const projectBtns = document.querySelectorAll(".project-btn");
+            const loginBtn = document.getElementById("login-btn");
+            const alertButton = document.getElementById("alert-button");
+
+            // Botón de cerrar alerta
+            alertButton.addEventListener("click", hideCustomAlert);
+
+            // Cerrar alerta al hacer clic fuera
+            document.getElementById('custom-alert').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    hideCustomAlert();
+                }
+            });
+
+            // Botón de iniciar sesión - AHORA FUNCIONA
+            loginBtn?.addEventListener("click", (e) => {
+                e.preventDefault();
+                showCustomAlert("Aún estamos trabajando en esta función", "Función en desarrollo");
+            });
+            
+            // Abrir modal
+            openBtn?.addEventListener("click", (e) => {
+                e.preventDefault();
+                modal.style.display = "flex";
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // Cerrar modal
+            closeBtn?.addEventListener("click", () => {
+                closeModal();
+            });
+            
+            // Cerrar modal al hacer clic en el overlay
+            window.addEventListener("click", (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            // Función para cerrar modal y resetear estado
+            function closeModal() {
+                modal.style.display = "none";
+                document.body.style.overflow = '';
+            }
+            
+            // Botones de proyectos
+            projectBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const url = this.getAttribute('data-url');
+                    if (url) {
+                        window.open(url, '_blank');
+                    }
+                });
+            });
+
+            // Tecla Escape para cerrar modal y alerta
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (document.getElementById('custom-alert').classList.contains('show')) {
+                        hideCustomAlert();
+                    } else if (modal.style.display === 'flex') {
+                        closeModal();
+                    }
+                }
+            });
+        });
+</script>

@@ -1,0 +1,648 @@
+---
+// Componente Astro - ContactSystem.astro
+---
+
+<!-- Sección Start -->
+<section class="start">
+	<div class="info-start">
+		<img src="/logo-dark-mode.png" alt="logo de lummoo" />
+		<div class="description">
+			<h1>La mejor manera de integrarte al mundo digital</h1>
+    		<p>Cotiza tu sitio web o aplicación, y explora productos digitales hechos para tu crecimiento.</p>
+		</div>
+	</div>
+	<button class="contact">Contactar ahora</button>
+</section>
+
+<!-- Modal de Contacto -->
+<div id="contact-modal" class="contact-modal">
+  <div class="contact-modal-overlay"></div>
+  <div class="contact-modal-content">
+    <div class="contact-modal-header">
+      <span class="close-contact-modal">&times;</span>
+    </div>
+    <div class="contact-modal-body">
+      <form id="contact-form">
+        <input type="text" name="user_name" placeholder="Nombre completo" required />
+        <input type="text" name="user_company" placeholder="Empresa" />
+        <input type="email" name="user_email" placeholder="Correo electrónico" required />
+        <input type="tel" name="user_phone" placeholder="Número de teléfono" />
+        <textarea name="message" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+        <button type="submit" class="contact-send-btn">Enviar mensaje</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style>
+	/* Estilos de la sección start */
+	.start {
+		display: flex;
+		flex-direction: column;
+		color: var(--color-text);
+		margin: 5rem 0 2rem 0;
+		padding: 0 1rem;
+	}
+
+	.info-start {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		margin: 0 auto;
+		max-width: 800px;
+		width: 100%;
+	}
+
+	.info-start img {
+		width: 42px;
+		height: 42px;
+		background: linear-gradient(to bottom, var(--background-dark), #28282b);
+		border-radius: 16px;
+		padding: 14px;
+		transition: all 0.3s ease;
+		margin-bottom: 2rem;
+	}
+
+	.info-start img:hover {
+		transform: scale(1.05);
+	}
+
+	.description {
+		width: 100%;
+		max-width: 600px;
+	}
+
+	.info-start h1 {
+		font-family: 'DM Sans', sans-serif;
+		font-size: clamp(32px, 5vw, 48px);
+		color: var(--color-titles);
+		user-select: none;
+		font-weight: 500;
+		line-height: 1.1;
+		margin-bottom: 1rem;
+	}
+
+	.info-start p {
+		font-family: 'DM Sans', sans-serif;
+		font-size: clamp(16px, 2.5vw, 20px);
+		font-weight: 400;
+		color: var(--color-links);
+		user-select: none;
+		line-height: 1.4;
+	}
+
+	.contact {
+		align-self: center; 
+		font-family: 'Inter', sans-serif;
+		width: 180px;
+		height: 60px;
+		font-size: 18px;
+		font-weight: 500;
+		background: var(--color-text);
+		color: var(--background-dark);
+		border: none;
+		border-radius: 28px;
+		transition: all 0.3s ease;
+		cursor: pointer;
+		margin-top: 2rem;
+	}
+
+	.contact:hover {
+		box-shadow: 0 0 12px 4px rgba(255, 255, 255, 0.2);
+	}
+
+	/* Estilos para el modal de contacto */
+	.contact-modal {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1000;
+		justify-content: center;
+		align-items: center;
+		animation: fadeIn 0.3s ease;
+	}
+
+	.contact-modal.show {
+		display: flex !important;
+	}
+
+	.contact-modal-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.7);
+		backdrop-filter: blur(5px);
+	}
+
+	.contact-modal-content {
+		position: relative;
+		background: var(--background-dark, #1a1a1a);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 16px;
+		width: 90%;
+		max-width: 500px;
+		max-height: 90vh;
+		overflow-y: auto;
+		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+		animation: slideIn 0.3s ease;
+	}
+
+	.contact-modal-header {
+		display: flex;
+		justify-content: flex-end;
+		padding: 1rem 1.5rem 0;
+	}
+
+	.close-contact-modal {
+		font-size: 28px;
+		font-weight: bold;
+		color: var(--color-links, #aaa);
+		cursor: pointer;
+		border: none;
+		background: none;
+		width: 40px;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		transition: all 0.3s ease;
+	}
+
+	.close-contact-modal:hover {
+		background-color: rgba(255, 255, 255, 0.1);
+		color: var(--color-text, #fff);
+		transform: scale(1.1);
+	}
+
+	.contact-modal-body {
+		padding: 0 1.5rem 1.5rem;
+	}
+
+	#contact-form {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	#contact-form input,
+	#contact-form textarea {
+		font-family: 'Inter', sans-serif;
+		width: 100%;
+		padding: 12px 16px;
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		border-radius: 8px;
+		background-color: rgba(255, 255, 255, 0.05);
+		color: var(--color-text, #fff);
+		font-size: 14px;
+		transition: all 0.3s ease;
+		box-sizing: border-box;
+	}
+
+	#contact-form input:focus,
+	#contact-form textarea:focus {
+		outline: none;
+		border-color: var(--color-text, #fff);
+		background-color: rgba(255, 255, 255, 0.1);
+		box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+	}
+
+	#contact-form input::placeholder,
+	#contact-form textarea::placeholder {
+		color: var(--color-links, #aaa);
+	}
+
+	#contact-form textarea {
+		resize: vertical;
+		min-height: 100px;
+	}
+
+	.contact-send-btn {
+		font-family: 'Inter', sans-serif;
+		width: 100%;
+		padding: 14px;
+		background: var(--color-text, #fff);
+		color: var(--background-dark, #1a1a1a);
+		border: none;
+		border-radius: 8px;
+		font-size: 16px;
+		font-weight: 500;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		margin-top: 0.5rem;
+	}
+
+	.contact-send-btn:hover:not(:disabled) {
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+	}
+
+	.contact-send-btn:disabled {
+		opacity: 0.7;
+		cursor: not-allowed;
+		transform: none;
+	}
+
+	/* Estilos para notificaciones personalizadas */
+	.custom-notification {
+		position: fixed;
+		top: 20px;
+		right: 20px;
+		padding: 16px 20px;
+		border-radius: 8px;
+		box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+		z-index: 10000;
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		max-width: 400px;
+		opacity: 0;
+		transform: translateX(100%);
+		transition: all 0.3s ease;
+	}
+
+	.custom-notification.success {
+		background: #4CAF50;
+		color: white;
+	}
+
+	.custom-notification.error {
+		background: #f44336;
+		color: white;
+	}
+	
+	.custom-notification.show {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	
+	.notification-content {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+	
+	.notification-icon {
+		font-size: 18px;
+		flex-shrink: 0;
+	}
+	
+	.notification-message {
+		flex: 1;
+		font-size: 14px;
+		line-height: 1.4;
+	}
+	
+	.notification-close {
+		background: none;
+		border: none;
+		color: white;
+		font-size: 20px;
+		cursor: pointer;
+		padding: 0;
+		width: 24px;
+		height: 24px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		transition: background-color 0.2s;
+	}
+	
+	.notification-close:hover {
+		background-color: rgba(255,255,255,0.2);
+	}
+
+	/* Animaciones */
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	@keyframes slideIn {
+		from {
+			transform: translateY(-50px);
+			opacity: 0;
+		}
+		to {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+
+	/* Media queries para mejor control responsive */
+	@media (max-width: 768px) {
+		.start {
+			margin: 3rem 0 2rem 0;
+			padding: 0 1.5rem;
+		}
+		
+		.info-start {
+			margin: 0;
+		}
+		
+		.info-start img {
+			width: 36px;
+			height: 36px;
+			padding: 12px;
+			margin-bottom: 1.5rem;
+		}
+		
+		.contact {
+			width: 160px;
+			height: 55px;
+			font-size: 16px;
+			margin-top: 1.5rem;
+		}
+
+		.contact-modal-content {
+			width: 95%;
+			margin: 0 auto;
+		}
+		
+		.contact-modal-header {
+			padding: 0.75rem 1rem 0;
+		}
+		
+		.contact-modal-body {
+			padding: 0 1rem 1rem;
+		}
+		
+		.close-contact-modal {
+			font-size: 24px;
+			width: 36px;
+			height: 36px;
+		}
+
+		.custom-notification {
+			top: 10px;
+			right: 10px;
+			left: 10px;
+			max-width: none;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.start {
+			margin: 2rem 0 1.5rem 0;
+			padding: 0 1rem;
+		}
+		
+		.info-start img {
+			width: 32px;
+			height: 32px;
+			padding: 10px;
+			margin-bottom: 1rem;
+		}
+		
+		.contact {
+			width: 140px;
+			height: 50px;
+			font-size: 15px;
+			margin-top: 1rem;
+		}
+
+		.contact-modal-content {
+			width: 98%;
+			border-radius: 12px;
+		}
+		
+		#contact-form input,
+		#contact-form textarea {
+			padding: 10px 14px;
+			font-size: 13px;
+		}
+		
+		.contact-send-btn {
+			padding: 12px;
+			font-size: 15px;
+		}
+	}
+
+	@media (max-width: 360px) {
+		.start {
+			padding: 0 0.75rem;
+		}
+		
+		.info-start h1 {
+			font-size: 28px;
+		}
+		
+		.info-start p {
+			font-size: 16px;
+		}
+	}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+	// Función para inicializar el sistema de contacto
+	function initContactSystem() {
+		console.log('Inicializando sistema de contacto...');
+
+		// Inicializar EmailJS (reemplaza con tu Public Key)
+		if (typeof emailjs !== 'undefined') {
+			emailjs.init("fGSpD4JcxOxevRcBo");
+		}
+
+		// Función para mostrar notificaciones personalizadas
+		function showNotification(message, type = 'success') {
+			// Crear elemento de notificación
+			const notification = document.createElement('div');
+			notification.className = `custom-notification ${type}`;
+			notification.innerHTML = `
+				<div class="notification-content">
+					<span class="notification-icon">${type === 'success' ? '✅' : '❌'}</span>
+					<span class="notification-message">${message}</span>
+					<button class="notification-close">&times;</button>
+				</div>
+			`;
+			
+			// Agregar notificación al DOM
+			document.body.appendChild(notification);
+			
+			// Mostrar notificación con animación
+			setTimeout(() => {
+				notification.classList.add('show');
+			}, 100);
+			
+			// Función para cerrar notificación
+			const closeNotification = () => {
+				notification.classList.remove('show');
+				setTimeout(() => {
+					if (notification.parentNode) {
+						notification.parentNode.removeChild(notification);
+					}
+				}, 300);
+			};
+			
+			// Cerrar al hacer clic en X
+			notification.querySelector('.notification-close').addEventListener('click', closeNotification);
+			
+			// Auto-cerrar después de 5 segundos
+			setTimeout(closeNotification, 5000);
+		}
+
+		// Función para enviar email usando EmailJS
+		function sendEmailDirectly(emailData) {
+			if (typeof emailjs === 'undefined') {
+				throw new Error('EmailJS no está disponible');
+			}
+			
+			return emailjs.send(
+				"service_p9cyut8", // Tu Service ID de EmailJS
+				"template_41ppyw3", // Tu Template ID de EmailJS
+				{
+					to_email: "dev.andres18@gmail.com",
+					from_name: emailData.nombre,
+					from_email: emailData.email,
+					subject: "Nuevo mensaje de contacto desde tu sitio web",
+					message: emailData.emailBody,
+					cliente_nombre: emailData.nombre,
+					cliente_email: emailData.email,
+					cliente_telefono: emailData.telefono,
+					cliente_empresa: emailData.empresa,
+					cliente_mensaje: emailData.descripcion
+				}
+			);
+		}
+
+		// Obtener referencia al formulario y botones
+		const contactForm = document.getElementById('contact-form');
+		const contactModal = document.getElementById('contact-modal');
+		const contactButton = document.querySelector('.contact');
+		const closeModalBtn = document.querySelector('.close-contact-modal');
+		const modalOverlay = document.querySelector('.contact-modal-overlay');
+
+		console.log('Elementos encontrados:', {
+			contactForm: !!contactForm,
+			contactModal: !!contactModal,
+			contactButton: !!contactButton,
+			closeModalBtn: !!closeModalBtn,
+			modalOverlay: !!modalOverlay
+		});
+
+		// Función para abrir el modal de contacto
+		function openContactModal() {
+			console.log('Intentando abrir modal...');
+			if (contactModal) {
+				contactModal.classList.add('show');
+				document.body.style.overflow = 'hidden';
+				console.log('Modal abierto');
+			} else {
+				console.error('Modal no encontrado');
+			}
+		}
+
+		// Función para cerrar el modal de contacto
+		function closeContactModal() {
+			console.log('Cerrando modal...');
+			if (contactModal) {
+				contactModal.classList.remove('show');
+				document.body.style.overflow = 'auto';
+				console.log('Modal cerrado');
+			}
+		}
+
+		// Event listeners para abrir/cerrar modal
+		if (contactButton) {
+			contactButton.addEventListener('click', (e) => {
+				e.preventDefault();
+				console.log('Botón de contacto clickeado');
+				openContactModal();
+			});
+			console.log('Event listener agregado al botón de contacto');
+		} else {
+			console.error('Botón de contacto no encontrado');
+		}
+
+		if (closeModalBtn) {
+			closeModalBtn.addEventListener('click', closeContactModal);
+		}
+
+		if (modalOverlay) {
+			modalOverlay.addEventListener('click', closeContactModal);
+		}
+
+		// Cerrar modal con tecla Escape
+		document.addEventListener('keydown', function(e) {
+			if (e.key === 'Escape' && contactModal && contactModal.classList.contains('show')) {
+				closeContactModal();
+			}
+		});
+
+		// Manejar envío del formulario de contacto
+		if (contactForm) {
+			contactForm.addEventListener('submit', function(e) {
+				e.preventDefault();
+				
+				const submitBtn = this.querySelector('.contact-send-btn');
+				const originalText = submitBtn.textContent;
+				
+				// Deshabilitar botón y cambiar texto
+				submitBtn.disabled = true;
+				submitBtn.textContent = 'Enviando...';
+				
+				// Obtener datos del formulario
+				const formData = new FormData(this);
+				const data = Object.fromEntries(formData);
+				
+				// Preparar datos para EmailJS
+				const emailData = {
+					nombre: data.user_name || '',
+					email: data.user_email || '',
+					telefono: data.user_phone || '',
+					empresa: data.user_company || '',
+					descripcion: data.message || '',
+					emailBody: `
+								Nuevo mensaje de contacto:
+												
+								Nombre: ${data.user_name || 'No especificado'}
+								Email: ${data.user_email || 'No especificado'}
+								Teléfono: ${data.user_phone || 'No especificado'}
+								Empresa: ${data.user_company || 'No especificado'}
+								Mensaje: ${data.message || 'No especificado'}
+					`.trim()
+				};
+				
+				// Enviar email usando EmailJS
+				sendEmailDirectly(emailData)
+					.then((response) => {
+						console.log('Email enviado exitosamente:', response);
+						showNotification('¡Mensaje enviado correctamente! Te contactaremos pronto.', 'success');
+						this.reset();
+						closeContactModal();
+					})
+					.catch((error) => {
+						console.error('Error al enviar email:', error);
+						showNotification('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.', 'error');
+					})
+					.finally(() => {
+						submitBtn.disabled = false;
+						submitBtn.textContent = originalText;
+					});
+			});
+		}
+	}
+
+	function ready(fn) {
+		if (document.readyState !== 'loading') {
+			fn();
+		} else {
+			document.addEventListener('DOMContentLoaded', fn);
+		}
+	}
+
+	ready(initContactSystem);
+
+	document.addEventListener('astro:page-load', initContactSystem);
+</script>

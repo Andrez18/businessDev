@@ -1,0 +1,1377 @@
+---
+// Componente Astro - Services.astro
+---
+
+<section class="services" id="Services">
+    <h2>Lo que hacemos</h2>
+    <div class="grid-bento">
+        
+        <!-- SITIOS WEB -->
+        <div class="sites-web bento-box">
+            <div class="info-webs">
+                <div class="icon-container">
+                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                        <line x1="8" y1="21" x2="16" y2="21"/>
+                        <line x1="12" y1="17" x2="12" y2="21"/>
+                    </svg>
+                </div>
+                <h3>Sitios Web</h3>
+                <p>Haz crecer tu negocio con un sitio web donde conectas, conviences y vendes más allá de las redes.</p>
+                <button class="service-btn" data-service="sitios-web">Solicita un proyecto</button>
+            </div>
+        </div>
+
+        <!-- APPS WEB -->
+        <div class="apps-web bento-box">
+            <div class="info-apps">
+                <div class="icon-container">
+                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
+                        <line x1="7" y1="2" x2="7" y2="22"/>
+                        <line x1="17" y1="2" x2="17" y2="22"/>
+                        <line x1="2" y1="12" x2="22" y2="12"/>
+                        <line x1="2" y1="7" x2="7" y2="7"/>
+                        <line x1="2" y1="17" x2="7" y2="17"/>
+                        <line x1="17" y1="7" x2="22" y2="7"/>
+                        <line x1="17" y1="17" x2="22" y2="17"/>
+                    </svg>
+                </div>
+                <h3>Aplicaciones Web</h3>
+                <p>Desarrollamos aplicaciones web personalizadas que resuelven problemas reales y generan impacto.</p>
+                <button class="service-btn" data-service="apps-web">Solicita un proyecto</button>
+            </div>
+        </div>
+
+        <!-- PROYECTOS -->
+        <div class="projects bento-box">
+            <div class="info-projects">
+                <div class="icon-container">
+                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14,2 14,8 20,8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10,9 9,9 8,9"/>
+                    </svg>
+                </div>
+                <h3>Nuestros proyectos</h3>
+                <p>Explora nuestros proyectos realizados que demuestran el compromiso y creatividad con nuestros clientes.</p>
+                <button class="open-projects-btn">Ver proyectos</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal para Sitios Web -->
+<div id="sitios-web-modal" class="service-modal">
+    <div class="service-modal-overlay"></div>
+    <div class="service-modal-content">
+        <div class="service-modal-header">
+            <h3>Solicitar Sitio Web</h3>
+            <span class="close-service-modal" data-modal="sitios-web-modal">&times;</span>
+        </div>
+        <div class="service-modal-body">
+            <form class="service-form" data-service-type="Sitio Web">
+                <div class="form-row">
+                    <input type="text" name="user_name" placeholder="Nombre completo" required />
+                    <input type="text" name="user_company" placeholder="Empresa" />
+                </div>
+                <div class="form-row">
+                    <input type="email" name="user_email" placeholder="Correo electrónico" required />
+                    <input type="tel" name="user_phone" placeholder="Número de teléfono" />
+                </div>
+                <button type="submit" class="service-send-btn">Enviar solicitud</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Aplicaciones Web -->
+<div id="apps-web-modal" class="service-modal">
+    <div class="service-modal-overlay"></div>
+    <div class="service-modal-content">
+        <div class="service-modal-header">
+            <h3>Solicitar Aplicación Web</h3>
+            <span class="close-service-modal" data-modal="apps-web-modal">&times;</span>
+        </div>
+        <div class="service-modal-body">
+            <form class="service-form" data-service-type="Aplicación Web">
+                <div class="form-row">
+                    <input type="text" name="user_name" placeholder="Nombre completo" required />
+                    <input type="text" name="user_company" placeholder="Empresa" />
+                </div>
+                <div class="form-row">
+                    <input type="email" name="user_email" placeholder="Correo electrónico" required />
+                    <input type="tel" name="user_phone" placeholder="Número de teléfono" />
+                </div>
+                <button type="submit" class="service-send-btn">Enviar solicitud</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="projects-modal" class="modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-content scrollable" id="modal-content">
+    <div class="modal-header">
+      <span class="close-modal">&times;</span>
+    </div>
+
+    <div class="modal-body">
+      <div class="hero-section">
+        <div class="hero-container">
+          <div class="hero-content">
+            <span class="hero-title">Nuestros proyectos</span>
+          </div>
+          <div class="background-pattern"></div>
+        </div>
+      </div>
+
+      <div class="section-divider">
+        <span class="section-title">Aplicaciones Web</span>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <div class="placeholder-image">
+            <span class="material-icons">psychology</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <span class="project-title">Melon Mind</span>
+          <p class="project-description">
+            Es una plataforma integral diseñada para psicólogos y clínicas, que facilita la gestión de pacientes, citas y finanzas, mientras potencia la organización y la colaboración en equipo.
+          </p>
+          <div class="project-link">
+            <button class="project-btn" data-url="https://codemelon.net/apps/mind">
+              Ir al proyecto <span class="material-icons">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                  <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <div class="placeholder-image">
+            <span class="material-icons">nfc</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <span class="project-title">Carded NFC</span>
+          <p class="project-description">
+            Carded es una empresa que se especializa en ofrecer soluciones de networking y gestión de contactos para otras empresas.
+          </p>
+          <div class="project-link">
+            <button class="project-btn" data-url="https://carded.es/">
+              Ir al proyecto <span class="material-icons">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                  <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <div class="placeholder-image">
+            <span class="material-icons">note</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <span class="project-title">stepbro Notes</span>
+          <p class="project-description">
+            Stepbro Notes es plataforma para mejorar la organización de tus notas. Cuenta con sistema de carpetas, to-do list con estados personalizables y un diario encriptado.
+          </p>
+          <div class="project-link">
+            <button class="project-btn" data-url="https://notes.stepbro.site">
+              Ir al proyecto <span class="material-icons">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                  <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider">
+        <span class="section-title">Sitios web</span>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <div class="placeholder-image">
+            <span class="material-icons">web</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <span class="project-title">Eros</span>
+          <p class="project-description">
+            Empresa de desarrollo web y marketing digital. Ofrecen servicios de diseño web, desarrollo de aplicaciones, SEO, SEM, redes sociales y más.
+          </p>
+          <div class="project-link">
+            <button class="project-btn" data-url="https://erosdev.com">
+              Ir al proyecto <span class="material-icons">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                  <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <div class="placeholder-image">
+            <span class="material-icons">festival</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <span class="project-title">Earthbound</span>
+          <p class="project-description">
+            Earthbound es un festival que fusiona fitness, música en vivo, misticismo y gastronomía gourmet. Una celebración donde el ejercicio, la música y la comida se unen para mejorar tu vitalidad y bienestar.
+          </p>
+          <div class="project-link">
+            <button class="project-btn" data-url="https://earthboundfest.com/">
+              Ir al proyecto <span class="material-icons">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                  <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <div class="cta-container">
+          <div class="cta-content">
+            <span class="cta-title">¿Encuentras interesante nuestro trabajo?</span>
+            <button class="cta-btn" id="contact-btn">
+              <span class="material-icons">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                  <path d="M880-80 720-240H320q-33 0-56.5-23.5T240-320v-40h440q33 0 56.5-23.5T760-440v-280h40q33 0 56.5 23.5T880-640v560ZM160-473l47-47h393v-280H160v327ZM80-280v-520q0-33 23.5-56.5T160-880h440q33 0 56.5 23.5T680-800v280q0 33-23.5 56.5T600-440H240L80-280Zm80-240v-280 280Z"/>
+                </svg>
+              </span>Contáctanos
+            </button>
+          </div>
+          <div class="background-pattern"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+    .services {
+        padding: 2rem 1rem;
+        max-width: 1400px;
+        margin: 0 auto;
+        border-radius: 28px;
+        background: var(--background-gris);
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .services h2 {
+        font-family: 'DM Sans', sans-serif;
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        font-weight: 700;
+        color: var(--color-titles);
+        text-align: center;
+        margin-bottom: 2rem;
+        padding-top: 1rem;
+        line-height: 1.2;
+    }
+
+    .grid-bento {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .bento-box {
+        border-radius: 20px;
+        padding: 1.5rem;
+        background: var(--background-gris-oscuro);
+        color: var(--text-color);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        min-height: 280px;
+        transition: transform 0.3s ease;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .bento-box:hover {
+        transform: translateY(-5px);
+    }
+
+    .icon-container {
+        margin-bottom: 1rem;
+    }
+
+    .service-icon {
+        width: 32px;
+        height: 32px;
+        color: var(--background-claro);
+        stroke-width: 1.5;
+    }
+
+    .info-webs, .info-apps, .info-projects {
+        position: relative;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .bento-box h3 {
+        font-family: 'DM Sans', sans-serif;
+        font-size: clamp(1.25rem, 3vw, 1.8rem);
+        font-weight: 700;
+        color: #ffffff;
+        line-height: 1.3;
+        margin-bottom: 1rem;
+        text-align: left;
+    }
+
+    .bento-box p {
+        font-family: 'DM Sans', sans-serif;
+        color: #cccccc;
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+        flex-grow: 1;
+    }
+
+    .bento-box button {
+        background: var(--background-claro);
+        color: #000000;
+        border: none;
+        padding: 0.75rem 1.25rem;
+        border-radius: 0.75rem;
+        font-weight: 600;
+        font-size: clamp(0.875rem, 2vw, 1rem);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        align-self: flex-start;
+        margin-top: auto;
+        white-space: nowrap;
+    }
+
+    .bento-box button:hover {
+        background: var(--background-dark);
+        color: var(--text-color);
+    }
+
+    /* Modal principal */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .modal-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
+  }
+
+  .modal-content.scrollable {
+    position: relative;
+    background-color: #111114;
+    color: #fff;
+    border-radius: 1rem;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    max-width: 100%;
+    max-height: 100%;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    transition: all 0.3s ease;
+  }
+
+  @media (min-width: 768px) {
+    .modal {
+      padding: 2rem;
+    }
+    
+    .modal-content.scrollable {
+      border-radius: 2rem;
+      max-width: 1000px;
+      max-height: 90vh;
+    }
+  }
+
+  .modal-content.expanded {
+    max-width: 100vw;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  .modal-header {
+    position: sticky;
+    top: 0;
+    background-color: #111114;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    z-index: 11;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  @media (min-width: 768px) {
+    .modal-header {
+      padding: 1.5rem 2rem;
+    }
+  }
+
+  .close-modal {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50px;
+    transition: background 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (min-width: 768px) {
+    .close-modal {
+      font-size: 2rem;
+      padding: 10px;
+    }
+  }
+
+  .close-modal:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .modal-body {
+    padding: 0 1rem 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .modal-body {
+      padding: 0 2rem 2rem;
+    }
+  }
+
+    /* Estilos para los modales de servicios */
+    .service-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .service-modal.show {
+        display: flex !important;
+    }
+
+    .service-modal-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(5px);
+    }
+
+    .service-modal-content {
+        position: relative;
+        background: var(--background-dark, #1a1a1a);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        width: 90%;
+        max-width: 600px;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        animation: slideIn 0.3s ease;
+    }
+
+    .service-modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 1.5rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 1.5rem;
+    }
+
+    .service-modal-header h3 {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--color-text, #fff);
+        margin: 0;
+    }
+
+    .close-service-modal {
+        font-size: 28px;
+        font-weight: bold;
+        color: var(--color-links, #aaa);
+        cursor: pointer;
+        border: none;
+        background: none;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+
+    .close-service-modal:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--color-text, #fff);
+        transform: scale(1.1);
+    }
+
+    .service-modal-body {
+        padding: 0 1.5rem 1.5rem;
+    }
+
+    .service-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .service-form input,
+    .service-form textarea,
+    .service-form select {
+        font-family: 'Inter', sans-serif;
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.05);
+        color: var(--color-text, #fff);
+        font-size: 14px;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+    }
+
+    .service-form input:focus,
+    .service-form textarea:focus,
+    .service-form select:focus {
+        outline: none;
+        border-color: var(--color-text, #fff);
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+    }
+
+    .service-form input::placeholder,
+    .service-form textarea::placeholder {
+        color: var(--color-links, #aaa);
+    }
+
+    .service-form select {
+        cursor: pointer;
+    }
+
+    .service-form select option {
+        background-color: var(--background-dark, #1a1a1a);
+        color: var(--color-text, #fff);
+    }
+
+    .service-form textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+
+    .service-send-btn {
+        font-family: 'Inter', sans-serif;
+        width: 100%;
+        padding: 14px;
+        background: var(--color-text, #fff);
+        color: var(--background-dark, #1a1a1a);
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 0.5rem;
+    }
+
+    .service-send-btn:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+    }
+
+    .service-send-btn:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    /* Estilos para notificaciones personalizadas */
+    .custom-notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 16px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 10000;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        max-width: 400px;
+        opacity: 0;
+        transform: translateX(100%);
+        transition: all 0.3s ease;
+    }
+
+    .custom-notification.success {
+        background: #4CAF50;
+        color: white;
+    }
+
+    .custom-notification.error {
+        background: #f44336;
+        color: white;
+    }
+    
+    .custom-notification.show {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    .notification-content {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .notification-icon {
+        font-size: 18px;
+        flex-shrink: 0;
+    }
+    
+    .notification-message {
+        flex: 1;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    
+    .notification-close {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        padding: 0;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: background-color 0.2s;
+    }
+    
+    .notification-close:hover {
+        background-color: rgba(255,255,255,0.2);
+    }
+
+    /* Animaciones */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateY(-50px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes subtleFloat {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-5px); }
+    }
+
+    /* Móviles pequeños */
+    @media (max-width: 480px) {
+        .services {
+            padding: 1.5rem 0.75rem;
+            border-radius: 20px;
+        }
+
+        .services h2 {
+            margin-bottom: 1.5rem;
+            padding-top: 0.5rem;
+        }
+
+        .grid-bento {
+            gap: 0.75rem;
+        }
+
+        .bento-box {
+            padding: 1.25rem;
+            border-radius: 16px;
+            min-height: 260px;
+        }
+
+        .service-icon {
+            width: 28px;
+            height: 28px;
+        }
+
+        .icon-container {
+            margin-bottom: 0.75rem;
+        }
+
+        .bento-box h3 {
+            margin-bottom: 0.75rem;
+        }
+
+        .bento-box p {
+            margin-bottom: 1rem;
+        }
+
+        .bento-box button {
+            padding: 0.625rem 1rem;
+            font-size: 0.875rem;
+        }
+
+        .service-modal-content {
+            width: 95%;
+            margin: 0 auto;
+        }
+        
+        .service-modal-header {
+            padding: 1rem 1rem 0;
+            margin-bottom: 1rem;
+        }
+        
+        .service-modal-header h3 {
+            font-size: 1.25rem;
+        }
+        
+        .service-modal-body {
+            padding: 0 1rem 1rem;
+        }
+        
+        .close-service-modal {
+            font-size: 24px;
+            width: 36px;
+            height: 36px;
+        }
+
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+
+        .service-form input,
+        .service-form textarea,
+        .service-form select {
+            padding: 10px 14px;
+            font-size: 13px;
+        }
+        
+        .service-send-btn {
+            padding: 12px;
+            font-size: 15px;
+        }
+
+        .custom-notification {
+            top: 10px;
+            right: 10px;
+            left: 10px;
+            max-width: none;
+        }
+    }
+
+    /* Móviles medianos */
+    @media (min-width: 481px) and (max-width: 767px) {
+        .services {
+            padding: 1.75rem 1rem;
+        }
+
+        .bento-box {
+            min-height: 300px;
+            padding: 1.75rem;
+        }
+
+        .service-icon {
+            width: 36px;
+            height: 36px;
+        }
+
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Tablets */
+    @media (min-width: 768px) {
+        .services {
+            padding: 3rem 2rem;
+            border-radius: 28px;
+        }
+
+        .grid-bento {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .services h2 {
+            margin-bottom: 3rem;
+        }
+
+        .bento-box {
+            min-height: 350px;
+            padding: 2rem;
+            border-radius: 24px;
+        }
+
+        .service-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .icon-container {
+            margin-bottom: 1.5rem;
+        }
+
+        .bento-box p {
+            margin-bottom: 1.5rem;
+        }
+
+        .bento-box button {
+            padding: 0.75rem 1.5rem;
+        }
+
+        /* Solo aplicar animaciones en pantallas grandes */
+        .bento-box:nth-child(1) {
+            animation: subtleFloat 8s ease-in-out infinite;
+            animation-delay: 0s;
+        }
+
+        .bento-box:nth-child(2) {
+            animation: subtleFloat 8s ease-in-out infinite;
+            animation-delay: 2.5s;
+        }
+
+        .bento-box:nth-child(3) {
+            animation: subtleFloat 8s ease-in-out infinite;
+            animation-delay: 5s;
+        }
+
+        .bento-box:hover {
+            animation-play-state: paused;
+        }
+    }
+
+    /* Tablets grandes y escritorio pequeño */
+    @media (min-width: 1024px) {
+        .services {
+            padding: 4rem 3rem;
+        }
+
+        .grid-bento {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .bento-box {
+            padding: 2.5rem;
+            min-height: 380px;
+            border-radius: 28px;
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+        }
+    }
+
+    /* Escritorio grande */
+    @media (min-width: 1440px) {
+        .services {
+            padding: 5rem 4rem;
+        }
+
+        .bento-box {
+            min-height: 400px;
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+        }
+    }
+
+    /* Estilos del scroll personalizado */
+    .contenedor-scroll {
+        max-height: 10px;
+        overflow-y: scroll;
+    }
+
+    .contenedor-scroll::-webkit-scrollbar {
+        width: 0px;
+    }
+
+    .contenedor-scroll::-webkit-scrollbar-track {
+        background: #18181b;
+    }
+
+    .contenedor-scroll::-webkit-scrollbar-thumb {
+        background-color: #4b4b4b;
+        border-radius: 10px;
+    }
+
+    .contenedor-scroll::-webkit-scrollbar-thumb:hover {
+        background-color: #6c63ff;
+    }
+
+    /* Mejoras de accesibilidad */
+    @media (prefers-reduced-motion: reduce) {
+        .bento-box {
+            animation: none;
+        }
+        
+        .bento-box:hover {
+            transform: none;
+        }
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+    // Función para inicializar el sistema de servicios y modales
+    function initServicesSystem() {
+        console.log('Inicializando sistema de servicios...');
+
+        // Inicializar EmailJS (reemplaza con tu Public Key)
+        if (typeof emailjs !== 'undefined') {
+            emailjs.init("fGSpD4JcxOxevRcBo");
+        }
+
+        // Función para mostrar notificaciones personalizadas
+        function showNotification(message, type = 'success') {
+            // Crear elemento de notificación
+            const notification = document.createElement('div');
+            notification.className = `custom-notification ${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <span class="notification-icon">${type === 'success' ? '✅' : '❌'}</span>
+                    <span class="notification-message">${message}</span>
+                    <button class="notification-close">&times;</button>
+                </div>
+            `;
+            
+            // Agregar notificación al DOM
+            document.body.appendChild(notification);
+            
+            // Mostrar notificación con animación
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+            
+            // Función para cerrar notificación
+            const closeNotification = () => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            };
+            
+            // Cerrar al hacer clic en X
+            notification.querySelector('.notification-close').addEventListener('click', closeNotification);
+            
+            // Auto-cerrar después de 5 segundos
+            setTimeout(closeNotification, 5000);
+        }
+
+        // Función para enviar email usando EmailJS
+        function sendServiceEmail(emailData) {
+            if (typeof emailjs === 'undefined') {
+                throw new Error('EmailJS no está disponible');
+            }
+            
+            return emailjs.send(
+                "service_p9cyut8", // Tu Service ID de EmailJS
+                "template_41ppyw3", // Tu Template ID de EmailJS
+                {
+                    to_email: "dev.andres18@gmail.com",
+                    from_name: emailData.nombre,
+                    from_email: emailData.email,
+                    subject: `Nueva solicitud de ${emailData.tipoServicio} - ${emailData.nombreProyecto}`,
+                    message: emailData.emailBody,
+                    cliente_nombre: emailData.nombre,
+                    cliente_email: emailData.email,
+                    cliente_telefono: emailData.telefono,
+                    cliente_empresa: emailData.empresa,
+                    tipo_servicio: emailData.tipoServicio,
+                    nombre_proyecto: emailData.nombreProyecto,
+                    presupuesto: emailData.presupuesto,
+                    complejidad: emailData.complejidad || 'No especificada',
+                    descripcion_proyecto: emailData.descripcionProyecto
+                }
+            );
+        }
+
+        // Obtener elementos del DOM
+        const serviceButtons = document.querySelectorAll('.service-btn');
+        const serviceModals = document.querySelectorAll('.service-modal');
+        const closeModalBtns = document.querySelectorAll('.close-service-modal');
+        const modalOverlays = document.querySelectorAll('.service-modal-overlay');
+        const serviceForms = document.querySelectorAll('.service-form');
+
+        console.log('Elementos encontrados:', {
+            serviceButtons: serviceButtons.length,
+            serviceModals: serviceModals.length,
+            closeModalBtns: closeModalBtns.length,
+            modalOverlays: modalOverlays.length,
+            serviceForms: serviceForms.length
+        });
+// Función para abrir modal específico
+        function openServiceModal(serviceType) {
+            console.log('Abriendo modal para:', serviceType);
+            const modalId = `${serviceType}-modal`;
+            const modal = document.getElementById(modalId);
+            
+            if (modal) {
+                modal.classList.add('show');  
+                document.body.style.overflow = 'hidden';
+            } else {
+                console.error('Modal no encontrado:', modalId);
+            }
+        }
+
+        // Función para cerrar modal específico
+        function closeServiceModal(modalId) {
+            console.log('Cerrando modal:', modalId);
+            const modal = document.getElementById(modalId);
+            
+            if (modal) {
+                modal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Función para cerrar todos los modales
+        function closeAllServiceModals() {
+            serviceModals.forEach(modal => {
+                modal.classList.remove('show');
+            });
+            document.body.style.overflow = '';
+        }
+
+        // Event listeners para abrir modales
+        serviceButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const serviceType = button.getAttribute('data-service');
+                console.log('Botón clickeado:', serviceType);
+                openServiceModal(serviceType);
+            });
+        });
+
+        // Event listeners para cerrar modales (botón X)
+        closeModalBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const modalId = btn.getAttribute('data-modal');
+                closeServiceModal(modalId);
+            });
+        });
+
+        // Event listeners para cerrar modales (click en overlay)
+        modalOverlays.forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                e.preventDefault();
+                closeAllServiceModals();
+            });
+        });
+
+        // Cerrar modal con tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeAllServiceModals();
+            }
+        });
+
+        function showNotification(message, type = 'success') {
+    const notification = document.createElement('div');
+    notification.className = `custom-notification ${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <span class="notification-icon">${type === 'success' ? '✅' : '❌'}</span>
+            <span class="notification-message">${message}</span>
+            <button class="notification-close">&times;</button>
+        </div>
+    `;
+    
+    const styles = `
+        .custom-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: ${type === 'success' ? '#4CAF50' : '#f44336'};
+            color: white;
+            padding: 16px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 10000;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 400px;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.3s ease;
+        }
+        
+        .custom-notification.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .notification-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .notification-icon {
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .notification-message {
+            flex: 1;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .notification-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.2s;
+        }
+        
+        .notification-close:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        @media (max-width: 480px) {
+            .custom-notification {
+                top: 10px;
+                right: 10px;
+                left: 10px;
+                max-width: none;
+            }
+        }
+    `;
+    
+    if (!document.getElementById('notification-styles')) {
+        const styleSheet = document.createElement('style');
+        styleSheet.id = 'notification-styles';
+        styleSheet.textContent = styles;
+        document.head.appendChild(styleSheet);
+    }
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+    
+    // Función para cerrar notificación
+    const closeNotification = () => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 300);
+    };
+    
+    notification.querySelector('.notification-close').addEventListener('click', closeNotification);
+    
+    setTimeout(closeNotification, 5000);
+}
+
+        // Event listeners para formularios de servicios
+        serviceForms.forEach(form => {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const submitBtn = form.querySelector('.service-send-btn');
+                const originalText = submitBtn.textContent;
+                
+                // Deshabilitar botón y mostrar estado de carga
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Enviando...';
+                
+                try {
+                    // Obtener datos del formulario
+                    const formData = new FormData(form);
+                    const serviceType = form.getAttribute('data-service-type');
+                    
+                    // Preparar datos del email
+                    const emailData = {
+                        nombre: formData.get('user_name'),
+                        email: formData.get('user_email'),
+                        telefono: formData.get('user_phone') || 'No proporcionado',
+                        empresa: formData.get('user_company') || 'No especificada',
+                        tipoServicio: serviceType,
+
+                    };
+
+                    // Crear cuerpo del email
+                    emailData.emailBody = `
+Nueva solicitud de ${serviceType}
+
+INFORMACIÓN DEL CLIENTE:
+• Nombre: ${emailData.nombre}
+• Email: ${emailData.email}
+• Teléfono: ${emailData.telefono}
+• Empresa: ${emailData.empresa}
+
+DETALLES DEL PROYECTO:
+• Tipo de servicio: ${emailData.tipoServicio}
+
+---
+Este email fue enviado desde el formulario de contacto del sitio web Lummoo.
+                    `.trim();
+
+                    console.log('Enviando email con datos:', emailData);
+                    
+                    // Enviar email
+                    await sendServiceEmail(emailData);
+                    
+                    // Mostrar notificación de éxito
+                    showNotification(
+                        `¡Solicitud enviada exitosamente! Te contactaremos pronto para discutir tu proyecto de ${serviceType.toLowerCase()}.`,
+                        'success'
+                    );
+                    
+                    // Limpiar formulario y cerrar modal
+                    form.reset();
+                    closeAllServiceModals();
+                    
+                } catch (error) {
+                    console.error('Error al enviar solicitud:', error);
+                    
+                    // Mostrar notificación de error
+                    showNotification(
+                        'Hubo un error al enviar tu solicitud. Por favor, intenta nuevamente o contáctanos directamente.',
+                        'error'
+                    );
+                } finally {
+                    // Restaurar botón
+                    setTimeout(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = originalText;
+                    }, 1000);
+                }
+            });
+        });
+
+        // Manejar botón de proyectos
+        const projectsBtn = document.querySelector('.projects-btn');
+        if (projectsBtn) {
+            projectsBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Scroll suave a la sección de proyectos
+                const projectsSection = document.getElementById('projects') || 
+                                      document.querySelector('.projects-section') ||
+                                      document.querySelector('#Projects');
+                
+                if (projectsSection) {
+                    projectsSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                } else {
+                    console.log('Sección de proyectos no encontrada');
+                    // Opcional: mostrar mensaje al usuario
+                    showNotification(
+                        'La sección de proyectos estará disponible próximamente.',
+                        'info'
+                    );
+                }
+            });
+        }
+
+        console.log('Sistema de servicios inicializado correctamente');
+
+        
+    }
+
+    // Inicializar cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initServicesSystem);
+    } else {
+        initServicesSystem();
+    }
+
+    // También inicializar cuando se navegue (para SPA)
+    window.addEventListener('load', initServicesSystem);
+</script>

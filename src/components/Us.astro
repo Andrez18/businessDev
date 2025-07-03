@@ -1,0 +1,119 @@
+<section class="us" id="us">
+    <div class="info">
+        <h2>¿Qué somos?</h2>
+        <p>Somos una startup <span>creativa y tecnológica que diseña y desarrolla sitios y aplicaciones web</span> para emprendedores locales. Creamos soluciones digitales funcionales, modernas y accesibles para que cada negocio tenga su espacio propio en internet y crezca con confianza.
+        </p>
+    </div>
+</section>
+
+<style>
+    .us {
+        font-family: 'DM Sans', sans-serif;
+        background: var(--background-claro);
+        color: var(--background-dark);
+        padding: 3rem 2rem;
+        border-radius: 28px;
+        margin: 0 1rem;
+    }
+
+    .info {
+        max-width: 800px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .info h2 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        margin-bottom: 1.5rem;
+        color: var(--background-gris-oscuro);
+        font-weight: 500;
+        line-height: 1.2;
+    }
+
+    .info p {
+        font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+        color: var(--background-dark);
+        font-weight: 300;
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    .info p span {
+        font-weight: bold;
+    }
+
+    .contenedor-scroll {
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+
+    .contenedor-scroll::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    .contenedor-scroll::-webkit-scrollbar-track {
+        background: #18181b;
+    }
+
+    .contenedor-scroll::-webkit-scrollbar-thumb {
+        background-color: #4b4b4b;
+        border-radius: 10px;
+    }
+
+    .contenedor-scroll::-webkit-scrollbar-thumb:hover {
+        background-color: #6c63ff;
+    }
+
+    /* Media queries para mejor control responsive */
+    @media (max-width: 1024px) {
+        .us {
+            margin: 0 2rem;
+            padding: 2.5rem 1.5rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .us {
+            margin: 0 1rem;
+            padding: 2rem 1.5rem;
+            border-radius: 20px;
+        }
+
+        .info h2 {
+            margin-bottom: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .us {
+            margin: 0 0.5rem;
+            padding: 1.5rem 1rem;
+            border-radius: 16px;
+        }
+
+        .info h2 {
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .info p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+    }
+
+    @media (max-width: 360px) {
+        .us {
+            margin: 0 0.25rem;
+            padding: 1rem 0.75rem;
+        }
+
+        .info h2 {
+            font-size: 1.5rem;
+        }
+
+        .info p {
+            font-size: 0.9rem;
+        }
+    }
+</style>
